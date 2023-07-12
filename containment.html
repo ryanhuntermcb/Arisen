@@ -4,16 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="scripts/main.js"></script>
 </head>
 <body>
     <h2>The key was created without one, I may not be forgiven</h2>
-    <form action="">
-        <input type="text" value="">
+    
+    <form action="" id="EntryForm">
+        <label for="Username">Username</label>
+        <input type="text" value="" id="Username" >
         <br>
-        <input type="text" vlaue="">
+        <label for="Password">Password</label>
+        <input type="password" vlaue="" id="Password" >
         <br>
-        <input type="submit" value="Unlock">
+        <!-- <input type="submit" value="Unlock" onclick="containmentEntry()"> -->
     </form>
+    <button onclick="containmentEntry()"> click me</button>
+    <div id="MessageWrapper">
 
+    </div>
 </body>
+
 </html>
