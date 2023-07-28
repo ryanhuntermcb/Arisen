@@ -70,6 +70,7 @@ function hasWon(){
 function backgroundOpacity(){
     let background = document.getElementsByClassName("homeimg")[0];
     let opacityValue = gameProgress();
+    opacityValue = Math.pow(opacityValue, 3)
     if (opacityValue) { 
         console.log(opacityValue);
         background.style.opacity = opacityValue;
