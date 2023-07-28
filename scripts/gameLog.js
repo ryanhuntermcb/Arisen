@@ -9,6 +9,10 @@ const gameLogInitialState = {
     containment: false,
     support: false,
 };
+//freeze prevents the answers being changed by a function. We will need to add the puzzle answers to this object as we finish them.
+const gameSolutions = Object.freeze({
+    lessons: "presage",
+});
 
 //Object.seal prevents us from adding properties that aren't in the gameLongInitialState object by accident.
 let userGameLog = Object.seal(getGameLog());
@@ -58,8 +62,8 @@ function gameProgress() {
     return gameProgress;
 }
 
-function hasWon(){
-    if(gameProgress() === 1){
+function hasWon() {
+    if (gameProgress() === 1) {
         return true
     }
     else {
@@ -81,8 +85,41 @@ gameProgress();
 backgroundOpacity();
 
 
+//function to check if an individual puzzle has been completed
+function hasWonPuzzle(puzzleName) {
+    console.log(userGameLog[puzzleName]);
+    return userGameLog[puzzleName];
+}
 
 
+//function to check if a game meets the correct conditions to be won
+function checkPuzzleAnswer(puzzleName, userAnswer) {
+    console.log(gameSolutions[puzzleName] + " guess: " + userAnswer);
+
+    userAnswer = userAnswer.toLowerCase();
+
+    if (!hasWonPuzzle(puzzleName)) {
+        if( userAnswer == gameSolutions[puzzleName]){
+            updateGameLog('lessons', true);
+            console.log("CorrectAnswer puzzle completed");
+            return true;
+        }
+        else {
+            console.log("Incorrect Answer")
+            return false;
+        }
+    } else {
+        console.log("game already won");
+        return true;
+    }
+
+}
+
+// checkPuzzleAnswer('lessons', 'testing');
+//hasWonPuzzle('lessons')
+//checkPuzzleAnswer('lessons', 'presa');
+//checkPuzzleAnswer('lessons', 'presage');
+//console.log(userGameLog);
 
 //Testing Functions
 /*
