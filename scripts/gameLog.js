@@ -48,7 +48,7 @@ function updateGameLog(key, value) {
 }
 
 function gameProgress() {
-    let gamesWon = 0;
+    let gamesWon = 0; 
     let totalGames = Object.keys(userGameLog).length;
     for (const key in userGameLog) {
         if (userGameLog[key])
@@ -66,6 +66,19 @@ function hasWon(){
         return false
     }
 }
+
+function backgroundOpacity(){
+    let background = document.getElementsByClassName("homeimg")[0];
+    let opacityValue = gameProgress();
+    if (opacityValue) { 
+        console.log(opacityValue);
+        background.style.opacity = opacityValue;
+    } else {
+        background.style.opacity = 0;
+    }
+}
+gameProgress();
+backgroundOpacity();
 
 
 
