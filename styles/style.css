@@ -83,3 +83,9 @@ overlay-text {
   margin: 40px;
 }
 
+.about{
+  font-family: 'Amatic SC', serif;
+  text-shadow: 1px 1px black;
+  margin: 10px;
+}
+
