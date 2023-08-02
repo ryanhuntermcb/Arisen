@@ -12,6 +12,7 @@ const gameLogInitialState = {
 //freeze prevents the answers being changed by a function. We will need to add the puzzle answers to this object as we finish them.
 const gameSolutions = Object.freeze({
     lessons: "presage",
+    regrets: "regret4key",
 });
 
 //Object.seal prevents us from adding properties that aren't in the gameLongInitialState object by accident.
@@ -106,8 +107,8 @@ function checkPuzzleAnswer(puzzleName, userAnswer) {
 
     if (!hasWonPuzzle(puzzleName)) {
         if (userAnswer == gameSolutions[puzzleName]) {
-            updateGameLog('lessons', true);
-            console.log("CorrectAnswer puzzle completed");
+            updateGameLog(puzzleName, true);
+            console.log(`Correct Answer ${puzzleName} puzzle completed`);
             return true;
         }
         else {
@@ -115,36 +116,54 @@ function checkPuzzleAnswer(puzzleName, userAnswer) {
             return false;
         }
     } else {
-        console.log("game already won");
+        console.log(`${puzzleName} has already been won`);
         return true;
     }
 
 }
 
-function checkPuzzleEventHandler() {
+function checkLessonsPuzzleEventHandler() {
     //alert("event handler worked");
     checkPuzzleAnswer('lessons', document.forms['lessonsEntry']['password'].value);
 }
 
-//This adds two event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
-//inner function is called that creates another event handler on the checkPuzzle button.
+function checkRegretsPuzzleEventHandler() {
+    checkPuzzleAnswer('regrets', 'regret4Key')
+    alert("you finished the regrets Puzzle")
+}
+
+//This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
+//inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
 //at some point we will need to break this Javascript up into smaller files so stuff that is unique to a page doesn't have to be error handled
 document.addEventListener("DOMContentLoaded", () => {
     try {//event listeners for the Lessons page
-    document.getElementById('checkPuzzle').addEventListener("click", checkPuzzleEventHandler);
+        document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
     }
     catch {
         console.log("this is not the lessons page")
     }
-    try {//event listeners for the Lessons page
-        document.getElementById('Regret2Key').addEventListener("click", ()=>{alert("you clicked on a key")});
+    try {//event listeners for the Regrets page
 
-        document.getElementById('r3').style.display = "none";
+        if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
+            //Initial Puzzle State: Hiding Regret Letters
+            document.getElementById('regret2').style.display = "none"
+            document.getElementById('regret3').style.display = "none";
+            document.getElementById('regret4').style.display = "none"; //Adjusting Opacity is also another option.
+
+            //Puzzle Keys
+            document.getElementById('regret1Key').addEventListener("click", () => { document.getElementById('regret2').style.display = "block"; });
+            document.getElementById('regret2Key').addEventListener("click", () => { document.getElementById('regret3').style.display = "block"; });
+            document.getElementById('regret3Key').addEventListener("click", () => { document.getElementById('regret4').style.display = "block"; });
+            document.getElementById('regret4Key').addEventListener("click", checkRegretsPuzzleEventHandler);
         }
-        catch {
-            console.log("this is not the regrets page")
+        else {
+            console.log('All Regrets should be displayed because the puzzle has already been won');
         }
+    }
+    catch {
+        console.log("this is not the regrets page")
+    }
     //Add other event listeners here
 }, false);
 
@@ -174,5 +193,6 @@ console.log(`Game Completion: ${gameProgress() * 100}%`);
 
 console.log(hasWon());
 */
+
 
 window.localStorage.removeItem(gameLogKey);
