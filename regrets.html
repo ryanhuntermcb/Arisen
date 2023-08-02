@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Regrets</title>
     <script src="scripts/main.js"></script>
+    <script src="scripts/gameLog.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Syne+Mono">
+    <link rel="stylesheet" href="./styles/style.css">
+    </style>
 </head>
+
 <body>
-    
+    <div class="Lessons">
+        <h1>Regrets</h1>
+        <h3>A Series of Letters</h3>
+
+        <div id="Findings">
+            <div class="Finding" id="r1">
+                <p>To my family,</p><br>
+                <p>I'm sorry</p>
+            </div>
+            <!-- these regrets can be hidden initially and then revealed as different items are clicked on -->
+            <div class="Finding" id="r2">
+                <p>To my friends,</p><br>
+                <p>I'm <a id="Regret2Key">Sorry But a link/html target</a></p>
+            </div>
+            <!-- testing hiding div contents  -->
+            <div class="Finding" id="r3">
+                <p>To my enemies,</p><br>
+                <p>I'm sorry</p>
+            </div>
+            <div class="Finding" id="r4">
+                <p>To my coworkers,</p><br>
+                <p>I'm sorry</p>
+            </div>
+        </div>
+        <!-- for now we will attempt putting everything onto one page, with the late regrets becoming visible when a user
+        clicks on the correct link in the prior regret -->
+    </div>
 </body>
+
 </html>

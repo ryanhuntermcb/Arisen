@@ -52,7 +52,7 @@ function updateGameLog(key, value) {
 }
 
 function gameProgress() {
-    let gamesWon = 0; 
+    let gamesWon = 0;
     let totalGames = Object.keys(userGameLog).length;
     for (const key in userGameLog) {
         if (userGameLog[key])
@@ -71,15 +71,20 @@ function hasWon() {
     }
 }
 
-function backgroundOpacity(){
-    let background = document.getElementsByClassName("homeimg")[0];
-    let opacityValue = gameProgress();
-    opacityValue = Math.pow(opacityValue, 3)
-    if (opacityValue) { 
-        console.log(opacityValue);
-        background.style.opacity = opacityValue;
-    } else {
-        background.style.opacity = 0;
+function backgroundOpacity() {
+    try {
+        let background = document.getElementsByClassName("homeimg")[0];
+        let opacityValue = gameProgress();
+        opacityValue = Math.pow(opacityValue, 3)
+        if (opacityValue) {
+            console.log(opacityValue);
+            background.style.opacity = opacityValue;
+        } else {
+            background.style.opacity = 0;
+        }
+    }
+    catch {
+        console.log("Opacity error")
     }
 }
 gameProgress();
@@ -88,7 +93,7 @@ backgroundOpacity();
 
 //function to check if an individual puzzle has been completed
 function hasWonPuzzle(puzzleName) {
-    console.log(userGameLog[puzzleName]);
+    //console.log(userGameLog[puzzleName]);
     return userGameLog[puzzleName];
 }
 
@@ -100,7 +105,7 @@ function checkPuzzleAnswer(puzzleName, userAnswer) {
     userAnswer = userAnswer.toLowerCase();
 
     if (!hasWonPuzzle(puzzleName)) {
-        if( userAnswer == gameSolutions[puzzleName]){
+        if (userAnswer == gameSolutions[puzzleName]) {
             updateGameLog('lessons', true);
             console.log("CorrectAnswer puzzle completed");
             return true;
@@ -115,6 +120,34 @@ function checkPuzzleAnswer(puzzleName, userAnswer) {
     }
 
 }
+
+function checkPuzzleEventHandler() {
+    //alert("event handler worked");
+    checkPuzzleAnswer('lessons', document.forms['lessonsEntry']['password'].value);
+}
+
+//This adds two event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
+//inner function is called that creates another event handler on the checkPuzzle button.
+//Other even listeners can be added into the parent event listener
+//at some point we will need to break this Javascript up into smaller files so stuff that is unique to a page doesn't have to be error handled
+document.addEventListener("DOMContentLoaded", () => {
+    try {//event listeners for the Lessons page
+    document.getElementById('checkPuzzle').addEventListener("click", checkPuzzleEventHandler);
+    }
+    catch {
+        console.log("this is not the lessons page")
+    }
+    try {//event listeners for the Lessons page
+        document.getElementById('Regret2Key').addEventListener("click", ()=>{alert("you clicked on a key")});
+
+        document.getElementById('r3').style.display = "none";
+        }
+        catch {
+            console.log("this is not the regrets page")
+        }
+    //Add other event listeners here
+}, false);
+
 
 // checkPuzzleAnswer('lessons', 'testing');
 //hasWonPuzzle('lessons')

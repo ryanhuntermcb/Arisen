@@ -60,7 +60,7 @@ p {
   top: 0px; 
   left: 0px;
 }
-
+/*
 overlay-text {
   position: absolute;
   font-family: 'Amatic SC', serif;
@@ -68,7 +68,7 @@ overlay-text {
   left: 5px; 
   z-index: -1; 
 }
-
+*/
 header {
   font-family: ''
 }
