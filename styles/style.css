@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-p {
+.aboutBody p {
   display:inline;
 }
 
@@ -38,7 +38,7 @@ p {
   font-family: 'Syne Mono', monospace;
   background-color: #fff6d6;
   border-radius: 5px;
-  width: 50%;
+  width: auto;
   padding: 5px;
   margin: 10px;
 }
@@ -83,3 +83,6 @@ overlay-text {
   margin: 40px;
 }
 
+span {
+  font-weight: bold;
+}
