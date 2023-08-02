@@ -69,7 +69,17 @@ overlay-text {
   z-index: -1; 
 }
 
-header {
+.header {
   font-family: ''
+}
+
+.about-old {
+  font-family: 'Handjet','Handjet';
+  color: rgb(255, 255, 255);
+  background-color:rgb(0, 0, 0);
+  border-radius: 5px;
+  width: 50%;
+  padding: 20px;
+  margin: 40px;
 }
 
