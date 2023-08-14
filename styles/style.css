@@ -64,8 +64,8 @@
 .overlay-text {
   position: absolute;
   font-family: 'Amatic SC', serif;
-  top: 10px; 
-  left: 5px; 
+  top: 48px; 
+  left: 399px; 
   z-index: -1; 
 }
 
