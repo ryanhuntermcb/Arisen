@@ -61,7 +61,7 @@
   left: 0px;
 }
 
-overlay-text {
+.overlay-text {
   position: absolute;
   font-family: 'Amatic SC', serif;
   top: 10px; 
