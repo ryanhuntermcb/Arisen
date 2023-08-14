@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+p {
+  display: inline;
+}
+
 .aboutBody .aboutBody p {
   display:inline;
 }
@@ -57,14 +61,13 @@
 
 .text-container {
   position: absolute;
-  top: 0px; 
-  left: 0px;
 }
 
 .overlay-text {
   position: absolute;
   font-family: 'Amatic SC', serif;
-  top: 48px; 
+  text-shadow: 1px 1px black;
+  top: 45px; 
   left: 399px; 
   z-index: -1; 
 }
