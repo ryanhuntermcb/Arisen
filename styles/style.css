@@ -129,8 +129,24 @@ input {
   margin: 10px;
 }
 
-.aboutPhoto {
-  display: inline-block;
+.aboutPhoto{
+  position: fixed;
+  margin-top: 20px;
+}
+
+.aboutPhotoText{
+  position: fixed;
+  margin-top: 380px;
+}
+
+.spiritAbout {
+  top: 45px; 
+  left: 100px;
+  position: absolute;
+  font-family: 'Amatic SC', serif;
+  text-shadow: 1px 1px black;
+  margin-top: 740px;
+  z-index: -6; 
 }
 
 span {
