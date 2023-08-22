@@ -15,31 +15,34 @@
 
 <body>
     <div class="Lessons">
-        <h1>Regrets</h1>
-        <h3>A Series of Letters</h3>
-
+        <div class="Header">
+            <h1>Regrets</h1>
+            <h3>A Series of Letters</h3>
+            <a href="Home.html">Home</a>
+        </div>
         <div id="Findings">
-            <div class="Finding" id="r1">
-                <p>To my family,</p><br>
-                <p>I'm sorry</p>
+            <div class="Finding" id="regret1">
+                <p>To my family,</p>
+                <p>I'm sorry <span id="regret1Key">Key #1</span> </p>
             </div>
-            <!-- these regrets can be hidden initially and then revealed as different items are clicked on -->
-            <div class="Finding" id="r2">
-                <p>To my friends,</p><br>
-                <p>I'm <a id="Regret2Key">Sorry But a link/html target</a></p>
+            <div class="Finding" id="regret2">
+                <p>To my friends,</p>
+                <p>I'm <span id="regret2Key">Key #2</span> additional text after the </p>
             </div>
-            <!-- testing hiding div contents  -->
-            <div class="Finding" id="r3">
-                <p>To my enemies,</p><br>
-                <p>I'm sorry</p>
+            <div class="Finding" id="regret3">
+                <p>To my enemies,</p>
+                <!-- this is one way of embedding a video into our site - this one is copyright free, but we will need to find/make a video that fits our them -->
+                <iframe src="https://www.youtube.com/embed/RK1RRVR9A2g?autoplay=1&mute=1&loop=1&controls=0&disablekb=1"
+                    width="640px" height="360"></iframe>
+                <p>I'm sorry <span id="regret3Key">Key #3</span></p>
             </div>
-            <div class="Finding" id="r4">
-                <p>To my coworkers,</p><br>
-                <p>I'm sorry</p>
+            <div class="Finding" id="regret4">
+                <p>To my coworkers,</p>
+                <p>I'm sorry<span id="regret4Key">Key #4</span></p>
             </div>
         </div>
-        <!-- for now we will attempt putting everything onto one page, with the late regrets becoming visible when a user
-        clicks on the correct link in the prior regret -->
+        <!-- for now we will attempt putting everything onto one page, with the later regrets becoming visible when a user
+        clicks on the correct link in the prior regret --test -->
     </div>
 </body>
 
