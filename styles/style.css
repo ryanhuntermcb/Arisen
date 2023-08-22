@@ -85,18 +85,35 @@ p {
   padding: 20px;
   margin: 40px;
   float:left;
+  max-width: 800px;
 }
 
 .about{
   font-family: 'Amatic SC', serif;
+  position: sticky;
   text-shadow: 1px 1px black;
   margin: 10px;
+  display: inline;
 }
 
 .aboutPhoto{
-  float:left;
   position: fixed;
-  margin-top: 40px;
+  margin-top: 20px;
+}
+
+.aboutPhotoText{
+  position: fixed;
+  margin-top: 380px;
+}
+
+.spiritAbout {
+  top: 45px; 
+  left: 100px;
+  position: absolute;
+  font-family: 'Amatic SC', serif;
+  text-shadow: 1px 1px black;
+  margin-top: 740px;
+  z-index: -6; 
 }
 
 span {
