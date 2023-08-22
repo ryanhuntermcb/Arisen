@@ -91,6 +91,9 @@ p {
   text-shadow: 1px 1px black;
   margin: 10px;
 }
+.aboutPhoto{
+  display: inline-block;
+}
 
 span {
   font-weight: bold;
