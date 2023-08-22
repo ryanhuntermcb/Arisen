@@ -84,6 +84,7 @@ p {
   width: 50%;
   padding: 20px;
   margin: 40px;
+  float:left;
 }
 
 .about{
@@ -91,8 +92,11 @@ p {
   text-shadow: 1px 1px black;
   margin: 10px;
 }
+
 .aboutPhoto{
-  display: inline-block;
+  float:left;
+  position: fixed;
+  margin-top: 40px;
 }
 
 span {
