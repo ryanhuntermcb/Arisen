@@ -132,6 +132,11 @@ function checkRegretsPuzzleEventHandler() {
     alert("you finished the regrets Puzzle")
 }
 
+function clickABoutPhoto() {
+    window.location.href="./about2.html";
+
+}
+
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
@@ -164,8 +169,14 @@ document.addEventListener("DOMContentLoaded", () => {
     catch {
         console.log("this is not the regrets page")
     }
+    try {//event listeners for the about page
+        document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
+    }catch {
+        console.log("this is not the abouts page")
+    }
     //Add other event listeners here
 }, false);
+
 
 
 // checkPuzzleAnswer('lessons', 'testing');
