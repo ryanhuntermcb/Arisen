@@ -196,3 +196,5 @@ console.log(hasWon());
 
 
 window.localStorage.removeItem(gameLogKey);
+
+//test
