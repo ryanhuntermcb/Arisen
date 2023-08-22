@@ -7,12 +7,43 @@ p {
   display: inline;
 }
 
-.aboutBody .aboutBody p {
-  display:inline;
+button{
+  background-color: rgb(0, 0, 0);
+  border-radius: 3px;
+  border-color: white;
+  padding: 15 px 32px;
+  font-size: 16px;
+  width: 25%;
 }
 
-.context {
-  color: rgb(255, 255, 255);
+input {
+  border-radius: 3px;
+  border-color: white;
+  width: 25%;
+  font-size: 16px;
+  /* background-color: ; */
+}
+
+.backgroundAndText {
+  font-family: 'Handjet', 'Handjet';
+  background-color: rgb(0, 0, 0);
+  color: white;
+}
+
+.backgroundAndText a {
+  color: aqua;
+}
+ 
+#Findings p {
+  display: block;
+}
+
+.aboutBody .aboutBody p {
+  display: inline;
+}
+
+.backgroundAndText #context{
+  color: black;
 }
 
 .links {
@@ -21,8 +52,14 @@ p {
 
 /*Lessons Styling*/
 .Lessons {
-  font-family: 'Syne Mono', monospace;  
-}
+  font-family: 'Handjet', 'Handjet';
+  background-color: rgb(0, 0, 0);
+  color: white;
+
+} 
+
+
+
 .Spirit {
   /*color: blue;*/
   /*font-weight: bold;*/
@@ -33,14 +70,14 @@ p {
 #Findings {
   width: 75%;
   margin: 0 auto;
-  background-color: gray;
+  /* background-color: gray; */
+  background-color: rgb(0, 0, 0);
   padding: 5px;
-  
 }
 
 .Finding {
-  font-family: 'Syne Mono', monospace;
-  background-color: #fff6d6;
+  /* font-family: 'Syne Mono', monospace;
+  background-color: #fff6d6; */
   border-radius: 5px;
   width: auto;
   padding: 5px;
@@ -56,7 +93,7 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  z-index:-2;
+  z-index: -2;
 }
 
 .text-container {
@@ -67,19 +104,19 @@ p {
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
-  top: 45px; 
-  left: 399px; 
-  z-index: -1; 
+  top: 45px;
+  left: 280px;/*update this to match the new font*/
+  z-index: -1;
 }
-
+/* 
 .header {
   font-family: ''
-}
+} */
 
 .about-old {
-  font-family: 'Handjet','Handjet';
+  font-family: 'Handjet', 'Handjet';
   color: rgb(255, 255, 255);
-  background-color:rgb(0, 0, 0);
+  background-color: rgb(0, 0, 0);
   border-radius: 5px;
   width: 50%;
   padding: 20px;
@@ -88,7 +125,7 @@ p {
   max-width: 800px;
 }
 
-.about{
+.about {
   font-family: 'Amatic SC', serif;
   position: sticky;
   text-shadow: 1px 1px black;
