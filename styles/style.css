@@ -156,3 +156,25 @@ input {
 span {
   font-weight: bold;
 }
+
+#containment {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.bordertesting {
+  border: 2px;
+  border-color: gray;
+  border-style: dotted;
+}
+
+#EntryForm {
+  margin: 0 auto;
+}
+.prisonerWarning {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+}
