@@ -173,8 +173,43 @@ span {
   vertical-align: middle;
 }
 
-.pupils {
+.about2photos {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.nopupils{
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+@keyframes shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-5px, 0); }
+  40% { transform: translate(5px, 0); }
+  60% { transform: translate(-5px, 0); }
+  80% { transform: translate(5px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+.leftpupil {
+  top: 155px;
+  left: 278px;
+  width: 15px;
+  height: auto;
   z-index: 2;
-  position:absolute;
-  animation: shake 0.5s;
+  position: absolute;
+  animation: shake 3s infinite;
+}
+
+.rightpupil {
+  top: 150px;
+  left: 360px;
+  width: 15px;
+  height: auto;
+  z-index: 2;
+  position: absolute;
+  animation: shake 1.8s infinite;
 }
