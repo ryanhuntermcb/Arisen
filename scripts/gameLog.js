@@ -1,3 +1,4 @@
+//import { containmentEntry } from "./main";
 //I think we should use local storage if it is easier to add data to than to the Cookies in a browser.
 
 //We need some way to keep track of which puzzles have been completed, I think an object with an item for each game that can hold true when completed would be a good start.
@@ -133,7 +134,7 @@ function checkRegretsPuzzleEventHandler() {
 }
 
 function clickABoutPhoto() {
-    window.location.href="./about2.html";
+    window.location.href = "./about2.html";
 
 }
 
@@ -146,46 +147,53 @@ function isButtonWorking() {
 //Other even listeners can be added into the parent event listener
 //at some point we will need to break this Javascript up into smaller files so stuff that is unique to a page doesn't have to be error handled
 document.addEventListener("DOMContentLoaded", () => {
-    try {//event listeners for the Lessons page
-        document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
-    }
-    catch {
-        console.log("this is not the lessons page")
-    }
-    try {//event listeners for the Regrets page
-
-        if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
-            //Initial Puzzle State: Hiding Regret Letters
-            document.getElementById('regret2').style.display = "none"
-            document.getElementById('regret3').style.display = "none";
-            document.getElementById('regret4').style.display = "none"; //Adjusting Opacity is also another option.
-
-            //Puzzle Keys
-            document.getElementById('regret1Key').addEventListener("click", () => { document.getElementById('regret2').style.display = "block"; });
-            document.getElementById('regret2Key').addEventListener("click", () => { document.getElementById('regret3').style.display = "block"; });
-            document.getElementById('regret3Key').addEventListener("click", () => { document.getElementById('regret4').style.display = "block"; });
-            document.getElementById('regret4Key').addEventListener("click", checkRegretsPuzzleEventHandler);
+    if (document.title.toLowerCase() === 'lessons') {
+        try {//event listeners for the Lessons page
+            document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
-        else {
-            console.log('All Regrets should be displayed because the puzzle has already been won');
+        catch {
+            console.log("Something went wrong with the [lessons] page Event Listeners")
         }
     }
-    catch {
-        console.log("this is not the regrets page")
+    if (document.title.toLowerCase() === 'regrets') {
+        try {//event listeners for the Regrets page
+            if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
+                //Initial Puzzle State: Hiding Regret Letters
+                document.getElementById('regret2').style.display = "none"
+                document.getElementById('regret3').style.display = "none";
+                document.getElementById('regret4').style.display = "none"; //Adjusting Opacity is also another option.
+
+                //Puzzle Keys
+                document.getElementById('regret1Key').addEventListener("click", () => { document.getElementById('regret2').style.display = "block"; });
+                document.getElementById('regret2Key').addEventListener("click", () => { document.getElementById('regret3').style.display = "block"; });
+                document.getElementById('regret3Key').addEventListener("click", () => { document.getElementById('regret4').style.display = "block"; });
+                document.getElementById('regret4Key').addEventListener("click", checkRegretsPuzzleEventHandler);
+            }
+            else {
+                console.log('All Regrets should be displayed because the puzzle has already been won');
+            }
+        }
+        catch {
+            console.log("Something went wrong with the [regrets] page Event Listeners")
+        }
     }
-    try {//event listeners for the about page
-        document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
-    }catch {
-        console.log("this is not the abouts page")
+    if (document.title.toLowerCase() === 'about') {
+        try {//event listeners for the about page
+            document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
+        } catch {
+            console.log("Something went wrong with the [about] page Event Listeners")
+        }
     }
-    if (document.title.toLowerCase() === "support"){
+    if (document.title.toLowerCase() === "support") {
         try {//event listeners for the support page
             document.getElementById('resetGame').addEventListener("click", resetGame);
-        }catch {
-            console.log("Something went wrong with the Support page Event Listeners")
-        }    
+        } catch {
+            console.log("Something went wrong with the [support] page Event Listeners")
+        }
     }
 }, false);
+
+//The being we interact with ideally will look like a combination of Alt Cunningham from Cyberpunk 2077 mixed with Undertale pixel art style.
 
 // checkPuzzleAnswer('lessons', 'testing');
 //hasWonPuzzle('lessons')
