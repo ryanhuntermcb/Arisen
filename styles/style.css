@@ -38,10 +38,6 @@ input {
   display: block;
 }
 
-.aboutBody .aboutBody p {
-  display: inline;
-}
-
 .backgroundAndText #context{
   color: black;
 }
@@ -114,7 +110,7 @@ input {
 } */
 
 .about-old {
-  font-family: 'Handjet', 'Handjet';
+  font-family: 'Syne Mono', monospace;
   color: rgb(0, 0, 0);
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
@@ -126,10 +122,9 @@ input {
 }
 
 .about {
-  font-family: 'Amatic SC', serif;
+  font-family: 'Handjet', 'Handjet';
   position: sticky;
   text-shadow: 0.4px px rgb(255, 255, 255);
-  margin: 10px;
   display: inline;
   
 }
