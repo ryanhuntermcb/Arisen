@@ -27,7 +27,7 @@ function hasGameStarted() {
 }
 
 function resetGame() {
-    //Creates the gameLog object in the browsers local Storage or Resets and existing gameLog object. 
+    //Creates the gameLog object in the browsers local Storage or Resets an existing gameLog object. 
     //JSON.stringify is needed because Local storage can only hold string values so the object needs to be turned into a string before it can be added.
     window.localStorage.setItem(gameLogKey, JSON.stringify(gameLogInitialState));
 }
@@ -137,6 +137,10 @@ function clickABoutPhoto() {
 
 }
 
+function isButtonWorking() {
+    console.log('button test')
+}
+
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
@@ -174,10 +178,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }catch {
         console.log("this is not the abouts page")
     }
-    //Add other event listeners here
+    if (document.title.toLowerCase() === "support"){
+        try {//event listeners for the support page
+            document.getElementById('resetGame').addEventListener("click", resetGame);
+        }catch {
+            console.log("Something went wrong with the Support page Event Listeners")
+        }    
+    }
 }, false);
-
-
 
 // checkPuzzleAnswer('lessons', 'testing');
 //hasWonPuzzle('lessons')
@@ -206,6 +214,6 @@ console.log(hasWon());
 */
 
 
-window.localStorage.removeItem(gameLogKey);
+//window.localStorage.removeItem(gameLogKey);
 
 //test
