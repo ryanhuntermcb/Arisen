@@ -243,4 +243,4 @@ console.log(hasWon());
 
 //window.localStorage.removeItem(gameLogKey);
 
-//test
+//testing if git config changes
