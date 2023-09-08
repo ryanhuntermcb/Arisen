@@ -9,6 +9,7 @@
     <title>About</title>
     <script src="scripts/main.js"></script>
     <script src="scripts/gameLog.js"></script>
+    <script src="scripts/dialogue.js"></script>
 </head>
 <body class = "backgroundAndText">
     <div class = "about2photos">
@@ -16,11 +17,15 @@
         <img class = "leftpupil" src="./images/eyes.jpg">
         <img class = "rightpupil" src="./images/eyes.jpg">
     </div>
-    <div class="Spirit">
+    <div class="Spirit" id="dialogue">
         What are you looking at?&#8194;...<br><br>
         
         Do you find me attractive?&#8194;...<br><br>
         
         Hahahaha. Where are my manners? Why don't we start from the beginning? What is your name?<br>
     </div>
+    <form action="" id="dialogueField">
+        <input type="text" name="response" id="response" class="backgroundAndText" autofocus>
+        <button type="button" onclick="dialogue()" id="responseButton" class="backgroundAndText">Answer</button>
+    </form>
 </body>
