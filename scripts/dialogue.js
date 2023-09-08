@@ -34,8 +34,9 @@ function dialogue(){
         dialoguecounter = dialogueCounter++;
     }
 
-    //if user inputes no name
+    //After user inputs name
     if (dialogueCounter === 1){
+        //if user inputs no name causes spam
         if (input1 === ""){
             badResponse1 = "THAT'S NOT A NAME"
 
@@ -51,6 +52,7 @@ function dialogue(){
                 
             }, 7000);  
 
+        //if user enters special name they get special dialogue
         }else if(input1 === "Daniel"){
             dialogueCounter = -1;
             document.getElementById("dialogue").innerHTML = speech.specialResponse1;
@@ -64,10 +66,11 @@ function dialogue(){
                 body.style.backgroundColor = "black";
             }, 8000);
 
+        //any other text will be considered a valid name
         }else{
             document.getElementById("dialogue").innerHTML = "haha, "+input1+speech.response1;
         }
-
+        
 
         if (dialogueCounter === 1) {
             
