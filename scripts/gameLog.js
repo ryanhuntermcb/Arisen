@@ -8,7 +8,7 @@ const gameLogInitialState = {
     regrets: false,
     about: false,
     containment: false,
-    support: false,
+    //support: false,
 };
 //freeze prevents the answers being changed by a function. We will need to add the puzzle answers to this object as we finish them.
 const gameSolutions = Object.freeze({
@@ -30,7 +30,9 @@ function hasGameStarted() {
 function resetGame() {
     //Creates the gameLog object in the browsers local Storage or Resets an existing gameLog object. 
     //JSON.stringify is needed because Local storage can only hold string values so the object needs to be turned into a string before it can be added.
-    window.localStorage.setItem(gameLogKey, JSON.stringify(gameLogInitialState));
+    //I believe since userGameLog is a reference type that reseting it as equal to the initial state
+    localStorage.setItem(gameLogKey, JSON.stringify(gameLogInitialState));   
+    userGameLog = getGameLog();
 }
 
 function getGameLog() {
@@ -142,6 +144,19 @@ function isButtonWorking() {
     console.log('button test')
 }
 
+function checkAboutPuzzleEventHandler(){
+    updateGameLog('about', true)
+}
+
+function checkContainmentPuzzleEventHandler(){
+    updateGameLog('containment', true)
+}
+
+if (hasWon()){
+    alert("You've won all the games");
+}
+
+
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
@@ -186,7 +201,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (document.title.toLowerCase() === "support") {
         try {//event listeners for the support page
-            document.getElementById('resetGame').addEventListener("click", resetGame);
+            document.getElementById('resetGame').addEventListener("click", () => {
+                resetGame()
+            });
+            document.getElementById('winAboutGame').addEventListener("click", checkAboutPuzzleEventHandler);
+            document.getElementById('winContainmentGame').addEventListener("click", checkContainmentPuzzleEventHandler);
         } catch {
             console.log("Something went wrong with the [support] page Event Listeners")
         }
