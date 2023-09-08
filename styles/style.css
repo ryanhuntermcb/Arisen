@@ -42,6 +42,10 @@ input {
   color: black;
 }
 
+#context {
+  cursor: default;
+}
+
 .links {
   font-weight: bold;
 }
@@ -49,9 +53,7 @@ input {
 /*Lessons Styling*/
 .Lessons {
   font-family: 'Handjet', 'Handjet';
-  background-color: rgb(0, 0, 0);
   color: white;
-
 } 
 
 .Spirit {
