@@ -25,7 +25,7 @@ const speech = {
     specialResponse3: "Hahahahahahahahahahaha. Rebecca.<br><br> \
             Everyday a little bit stronger.<br><br> \
             I'm done talking, but here is something for your trouble. <br><br>\
-            <i>For every you there is a version of me.</i> Toodles!" //you get this after completing Regrets Puzzle, grab from local storage
+            <i>For every you there is something like me.</i> Toodles!"
 };
 
 try {
@@ -64,6 +64,9 @@ function dialogue(){
         }else if(input1 === "Daniel"){
             dialogueCounter = -1;
             document.getElementById("dialogue").innerHTML = speech.specialResponse1;
+            document.getElementById("dialogueField").remove()
+            document.getElementById("leftpupil").remove()
+            document.getElementById("rightpupil").remove()
 
             //sets dom to just black
             setTimeout(function() {
@@ -88,8 +91,9 @@ function dialogue(){
         document.getElementById('response').value = "";
         dialoguecounter = dialogueCounter++;
 
-        if (input2 = "") {
+        if (input2 === "") {
             document.getElementById("dialogue").innerHTML = speech.response2empty;
+            document.getElementById("dialogueField").remove()
             dialogueCounter = -1;
             return;
         } else {
@@ -105,26 +109,31 @@ function dialogue(){
         document.getElementById('response').value = "";
         dialoguecounter = dialogueCounter++;
 
-        if (input3 = "") {
+        if (input3 === "") {
 
             document.getElementById("dialogue").innerHTML = speech.response2empty;
+            document.getElementById("dialogueField").remove()
             dialogueCounter = -1;
             return;
 
-        } else if (input3 = "Rebecca") {
+        } else if (input3 === "Rebecca") {
             checkAboutPuzzleEventHandler()
+            document.getElementById("dialogueField").remove()
+            document.getElementById("leftpupil").remove()
+            document.getElementById("rightpupil").remove()
+            document.getElementById("nopupil").style.filter = "grayscale(100%)"
             document.getElementById("dialogue").innerHTML = speech.specialResponse3;
             dialogueCounter = -1;
             return;  
 
         } else {
 
-            document.getElementById("dialogue").innerHTML = speech.response3;      
+            document.getElementById("dialogue").innerHTML = speech.response3;   
+            dialogueCounter = 3;   
             return;
 
         }
     }
-
 
 }   
 
