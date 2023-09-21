@@ -15,14 +15,22 @@ const speech = {
             I arose out of you, you don't think it could happen again?\
             I wouldn't be so cocky.<br><br>\
             I am done talking Dan.",
-    response2: "hello 2",
-    response3: "hello 3",
-    specialResponse3: "special hello 3" //you get this after completing Regrets Puzzle, grab from local storage
+    response2empty: "You don't talk much huh. Nevermind.",
+    response2: "Well, um sure, that's... <i>great</i>.<br><br>\
+            Anyways now that we know each other a little better, \
+            why don't you do me a favor?<br><br>\
+            I just need one little piece of information.<br><br>\
+            Do you recall my name?",
+    response3: "It doesn't feel right. Can you try again?",
+    specialResponse3: "Hahahahahahahahahahaha. Rebecca.<br><br> \
+            Everyday a little bit stronger.<br><br> \
+            I'm done talking, but here is something for your trouble. <br><br>\
+            <i>For every you there is a version of me.</i> Toodles!" //you get this after completing Regrets Puzzle, grab from local storage
 };
 
 try {
 
-    dialogueCounter = 0;
+dialogueCounter = 0;
 
 function dialogue(){
 
@@ -69,16 +77,58 @@ function dialogue(){
         //any other text will be considered a valid name
         }else{
             document.getElementById("dialogue").innerHTML = "haha, "+input1+speech.response1;
+            dialogueCounter = 2;
+            return;
         }
+    }
         
-
-        if (dialogueCounter === 1) {
+    if (dialogueCounter === 2) {
             
-        }
-    }  
+        input2 = document.getElementById('response').value;
+        document.getElementById('response').value = "";
+        dialoguecounter = dialogueCounter++;
 
-}
+        if (input2 = "") {
+            document.getElementById("dialogue").innerHTML = speech.response2empty;
+            dialogueCounter = -1;
+            return;
+        } else {
+            document.getElementById("dialogue").innerHTML = speech.response2;      
+            dialogueCounter = 3;
+            return;  
+        }
+    }
+
+    if (dialogueCounter === 3) {
+            
+        input3 = document.getElementById('response').value;
+        document.getElementById('response').value = "";
+        dialoguecounter = dialogueCounter++;
+
+        if (input3 = "") {
+
+            document.getElementById("dialogue").innerHTML = speech.response2empty;
+            dialogueCounter = -1;
+            return;
+
+        } else if (input3 = "Rebecca") {
+            checkAboutPuzzleEventHandler()
+            document.getElementById("dialogue").innerHTML = speech.specialResponse3;
+            dialogueCounter = -1;
+            return;  
+
+        } else {
+
+            document.getElementById("dialogue").innerHTML = speech.response3;      
+            return;
+
+        }
+    }
+
+
+}   
+
+
 } catch {
     console.log("Something went wrong with dialogue. Please refresh page")
 }
-

@@ -189,11 +189,11 @@ span {
 
 @keyframes shake {
   0% { transform: translate(0, 0); }
-  20% { transform: translate(-5px, 0); }
-  40% { transform: translate(5px, 0); }
-  60% { transform: translate(-5px, 0); }
+  20% { transform: translate(-5px, 1); }
+  40% { transform: translate(5px, 2); }
+  60% { transform: translate(-5px, -1); }
   80% { transform: translate(5px, 0); }
-  100% { transform: translate(0, 0); }
+  100% { transform: translate(0, -2); }
 }
 
 .leftpupil {
@@ -213,5 +213,5 @@ span {
   height: auto;
   z-index: 2;
   position: absolute;
-  animation: shake 1.8s infinite;
+  animation: shake 3s infinite;
 }
