@@ -18,14 +18,19 @@ function startScript() {
             console.log(script[i]);
             document.getElementById("start").innerHTML = script[i];
             i++;
+            //changes image opacity
+            if (i === 6){
+                console.log("opacity")
+                let background = document.getElementsByClassName("startimg")[0];
+                let opacityValue = 0.10;
+                background.style.opacity = opacityValue;
+            }
         } else {
             clearInterval(intervalId); // Stop the interval when all elements are processed
             isOld()
             window.open('./home.html', '_self');
         }
-    }, 4000);
-
-    
+    }, 4000);    
 }
 
 startScript()
