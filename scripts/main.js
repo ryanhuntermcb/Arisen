@@ -12,3 +12,22 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 })
+
+//checking if user is New and starting tutorial script
+function isNew() {
+    let $readValue = sessionStorage['newSession'];
+    if ($readValue !== 'false') {
+        let $newSession = 'true'
+        sessionStorage['newSession'] = $newSession
+        console.log($readValue)
+        return true;
+    }
+}
+
+function start() {
+    if (isNew()) {
+        window.open('./start.html', '_self');
+    }
+}
+
+start()
