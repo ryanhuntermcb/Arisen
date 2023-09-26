@@ -1,3 +1,5 @@
+import { checkAboutPuzzleEventHandler } from "../scripts/Library.js";
+
 let input1 = "";
 
 const speech = {
@@ -28,116 +30,124 @@ const speech = {
             <i>For every you there is something like me.</i> Toodles!"
 };
 
-try {
+let dialogueCounter = 0;
 
-dialogueCounter = 0;
+function dialogue() {
+    try {
+        //getting first input
+        if (dialogueCounter === 0) {
+            //gets input and resets input to blank
+            input1 = document.getElementById('response').value;
+            document.getElementById('response').value = "";
+            let dialoguecounter = dialogueCounter++;
+        }
 
-function dialogue(){
+        //After user inputs name
+        if (dialogueCounter === 1) {
+            //if user inputs no name causes spam
+            if (input1 === "") {
+                badResponse1 = "THAT'S NOT A NAME"
 
-    //getting first input
-    if (dialogueCounter === 0) {
-        //gets input and resets input to blank
-        input1 = document.getElementById('response').value;
-        document.getElementById('response').value = "";
-        dialoguecounter = dialogueCounter++;
-    }
-
-    //After user inputs name
-    if (dialogueCounter === 1){
-        //if user inputs no name causes spam
-        if (input1 === ""){
-            badResponse1 = "THAT'S NOT A NAME"
-
-            for (let i = 0; i < 1000; i++) {
-                document.getElementById("dialogue").textContent += badResponse1;   
-            }
-            
-            //waits 7 seconds before trying again
-            setTimeout(function() {
-                document.getElementById("dialogue").innerHTML = "Sorry about that,\
-                                        let's start again.<br><br>" + speech.intro;
-                dialogueCounter = 0; 
-                
-            }, 7000);  
-
-        //if user enters special name they get special dialogue
-        }else if(input1 === "Daniel"){
-            dialogueCounter = -1;
-            document.getElementById("dialogue").innerHTML = speech.specialResponse1;
-            document.getElementById("dialogueField").remove()
-            document.getElementById("leftpupil").remove()
-            document.getElementById("rightpupil").remove()
-
-            //sets dom to just black
-            setTimeout(function() {
-                var body = document.body;
-                while (body.firstChild) {
-                    body.removeChild(body.firstChild);
+                for (let i = 0; i < 1000; i++) {
+                    document.getElementById("dialogue").textContent += badResponse1;
                 }
-                body.style.backgroundColor = "black";
-            }, 8000);
 
-        //any other text will be considered a valid name
-        }else{
-            document.getElementById("dialogue").innerHTML = "haha, "+input1+speech.response1;
-            dialogueCounter = 2;
-            return;
+                //waits 7 seconds before trying again
+                setTimeout(function () {
+                    document.getElementById("dialogue").innerHTML = "Sorry about that,\
+                                        let's start again.<br><br>" + speech.intro;
+                    dialogueCounter = 0;
+
+                }, 7000);
+
+                //if user enters special name they get special dialogue
+            } else if (input1 === "Daniel") {
+                dialogueCounter = -1;
+                document.getElementById("dialogue").innerHTML = speech.specialResponse1;
+                document.getElementById("dialogueField").remove()
+                document.getElementById("leftpupil").remove()
+                document.getElementById("rightpupil").remove()
+
+                //sets dom to just black
+                setTimeout(function () {
+                    var body = document.body;
+                    while (body.firstChild) {
+                        body.removeChild(body.firstChild);
+                    }
+                    body.style.backgroundColor = "black";
+                }, 8000);
+
+                //any other text will be considered a valid name
+            } else {
+                document.getElementById("dialogue").innerHTML = "haha, " + input1 + speech.response1;
+                dialogueCounter = 2;
+                return;
+            }
         }
-    }
-        
-    if (dialogueCounter === 2) {
-            
-        input2 = document.getElementById('response').value;
-        document.getElementById('response').value = "";
-        dialoguecounter = dialogueCounter++;
 
-        if (input2 === "") {
-            document.getElementById("dialogue").innerHTML = speech.response2empty;
-            document.getElementById("dialogueField").remove()
-            dialogueCounter = -1;
-            return;
-        } else {
-            document.getElementById("dialogue").innerHTML = speech.response2;      
-            dialogueCounter = 3;
-            return;  
+        if (dialogueCounter === 2) {
+
+            let input2 = document.getElementById('response').value;
+            document.getElementById('response').value = "";
+            let dialoguecounter = dialogueCounter++;
+
+            if (input2 === "") {
+                document.getElementById("dialogue").innerHTML = speech.response2empty;
+                document.getElementById("dialogueField").remove()
+                dialogueCounter = -1;
+                return;
+            } else {
+                document.getElementById("dialogue").innerHTML = speech.response2;
+                dialogueCounter = 3;
+                return;
+            }
         }
-    }
 
-    if (dialogueCounter === 3) {
-            
-        input3 = document.getElementById('response').value;
-        document.getElementById('response').value = "";
-        dialoguecounter = dialogueCounter++;
+        if (dialogueCounter === 3) {
 
-        if (input3 === "") {
+            let input3 = document.getElementById('response').value;
+            document.getElementById('response').value = "";
+            let dialoguecounter = dialogueCounter++;
 
-            document.getElementById("dialogue").innerHTML = speech.response2empty;
-            document.getElementById("dialogueField").remove()
-            dialogueCounter = -1;
-            return;
+            if (input3 === "") {
 
-        } else if (input3 === "Rebecca") {
-            checkAboutPuzzleEventHandler()
-            document.getElementById("dialogueField").remove()
-            document.getElementById("leftpupil").remove()
-            document.getElementById("rightpupil").remove()
-            document.getElementById("nopupil").style.filter = "grayscale(100%)"
-            document.getElementById("dialogue").innerHTML = speech.specialResponse3;
-            dialogueCounter = -1;
-            return;  
+                document.getElementById("dialogue").innerHTML = speech.response2empty;
+                document.getElementById("dialogueField").remove()
+                dialogueCounter = -1;
+                return;
 
-        } else {
+            } else if (input3 === "Rebecca") {
+                checkAboutPuzzleEventHandler()
+                document.getElementById("dialogueField").remove()
+                document.getElementById("leftpupil").remove()
+                document.getElementById("rightpupil").remove()
+                document.getElementById("nopupil").style.filter = "grayscale(100%)"
+                document.getElementById("dialogue").innerHTML = speech.specialResponse3;
+                dialogueCounter = -1;
+                return;
 
-            document.getElementById("dialogue").innerHTML = speech.response3;   
-            dialogueCounter = 3;   
-            return;
+            } else {
 
+                document.getElementById("dialogue").innerHTML = speech.response3;
+                dialogueCounter = 3;
+                return;
+
+            }
         }
+
+    } catch {
+        console.log("Something went wrong with dialogue. Please refresh page")
     }
-
-}   
-
-
-} catch {
-    console.log("Something went wrong with dialogue. Please refresh page")
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.title.toLowerCase() === 'about2') {
+        try {//event listeners for the about page
+            document.getElementById('responseButton').addEventListener("click", dialogue);
+        } catch {
+            console.log("Something went wrong with the [about2] page Event Listeners")
+        }
+    }
+})
