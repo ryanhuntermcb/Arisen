@@ -1,7 +1,12 @@
-//import { containmentEntry } from "./main";
+import { 
+    gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler, 
+    checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler, 
+    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto 
+} from "../scripts/Library.js";
 //I think we should use local storage if it is easier to add data to than to the Cookies in a browser.
 
 //We need some way to keep track of which puzzles have been completed, I think an object with an item for each game that can hold true when completed would be a good start.
+/*
 const gameLogKey = 'gameLog'
 const gameLogInitialState = {
     lessons: false,
@@ -91,8 +96,6 @@ function backgroundOpacity() {
         console.log("Opacity error")
     }
 }
-gameProgress();
-backgroundOpacity();
 
 
 //function to check if an individual puzzle has been completed
@@ -155,6 +158,9 @@ function checkContainmentPuzzleEventHandler(){
 if (hasWon()){
     alert("You've won all the games");
 }
+*/
+gameProgress();
+backgroundOpacity();
 
 
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
@@ -197,6 +203,13 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
         } catch {
             console.log("Something went wrong with the [about] page Event Listeners")
+        }
+    }
+    if (document.title.toLowerCase() === 'about2') {
+        try {//event listeners for the about page
+            document.getElementById('responseButton').addEventListener("click", checkAboutPuzzleEventHandler);
+        } catch {
+            console.log("Something went wrong with the [about2] page Event Listeners")
         }
     }
     if (document.title.toLowerCase() === "support") {
