@@ -225,10 +225,33 @@ if (hasWon()) {
     alert("You've won all the games");
 }
 
+//---------------------------------------------------
+//----------------Start Logic------------------------
+//---------------------------------------------------
+function isNew() { //checking if user is New and starting tutorial script
+    let $readValue = sessionStorage['newSession'];
+    if ($readValue !== 'false') {
+        let $newSession = 'true'
+        sessionStorage['newSession'] = $newSession
+        console.log($readValue)
+        return true;
+    }
+}
+
+function start() {
+    if (isNew()) {
+        window.open('./start.html', '_self');
+    }
+}
+
+
+
 export {
-    containmentEntry, imprisonment, isPrisoner, //Containment
+    containmentEntry, imprisonment, isPrisoner, start, //main //Containment
 
     gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler, //GameLog
     checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler, //GameLog
-    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto //GameLog        
+    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto //GameLog    
+    
+
 }

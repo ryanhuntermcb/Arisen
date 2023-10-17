@@ -1,167 +1,14 @@
 import { 
     gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler, 
     checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler, 
-    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto 
+    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto //group these together
 } from "../scripts/Library.js";
 //I think we should use local storage if it is easier to add data to than to the Cookies in a browser.
 
 //We need some way to keep track of which puzzles have been completed, I think an object with an item for each game that can hold true when completed would be a good start.
-/*
-const gameLogKey = 'gameLog'
-const gameLogInitialState = {
-    lessons: false,
-    regrets: false,
-    about: false,
-    containment: false,
-    //support: false,
-};
-//freeze prevents the answers being changed by a function. We will need to add the puzzle answers to this object as we finish them.
-const gameSolutions = Object.freeze({
-    lessons: "presage",
-    regrets: "regret4key",
-});
 
-//Object.seal prevents us from adding properties that aren't in the gameLongInitialState object by accident.
-let userGameLog = Object.seal(getGameLog());
-
-function hasGameStarted() {
-    if (localStorage.getItem(gameLogKey)) {
-        return true;
-    }
-    else
-        return false;
-}
-
-function resetGame() {
-    //Creates the gameLog object in the browsers local Storage or Resets an existing gameLog object. 
-    //JSON.stringify is needed because Local storage can only hold string values so the object needs to be turned into a string before it can be added.
-    //I believe since userGameLog is a reference type that reseting it as equal to the initial state
-    localStorage.setItem(gameLogKey, JSON.stringify(gameLogInitialState));   
-    userGameLog = getGameLog();
-}
-
-function getGameLog() {
-    if (hasGameStarted()) {
-        return JSON.parse(localStorage.getItem(gameLogKey));
-
-    }
-    else {
-        resetGame();
-        return JSON.parse(localStorage.getItem(gameLogKey));
-    }
-
-}
-
-function updateGameLog(key, value) {
-    //update JS object
-    userGameLog[key] = value
-
-    //update local storage object
-    window.localStorage.setItem(gameLogKey, JSON.stringify(userGameLog))
-}
-
-function gameProgress() {
-    let gamesWon = 0;
-    let totalGames = Object.keys(userGameLog).length;
-    for (const key in userGameLog) {
-        if (userGameLog[key])
-            gamesWon += 1;
-    }
-    let gameProgress = gamesWon / totalGames
-    return gameProgress;
-}
-
-function hasWon() {
-    if (gameProgress() === 1) {
-        return true
-    }
-    else {
-        return false
-    }
-}
-
-function backgroundOpacity() {
-    try {
-        let background = document.getElementsByClassName("homeimg")[0];
-        let opacityValue = gameProgress();
-        opacityValue = Math.pow(opacityValue, 3)
-        if (opacityValue) {
-            console.log(opacityValue);
-            background.style.opacity = opacityValue;
-        } else {
-            background.style.opacity = 0;
-        }
-    }
-    catch {
-        console.log("Opacity error")
-    }
-}
-
-
-//function to check if an individual puzzle has been completed
-function hasWonPuzzle(puzzleName) {
-    //console.log(userGameLog[puzzleName]);
-    return userGameLog[puzzleName];
-}
-
-
-//function to check if a game meets the correct conditions to be won
-function checkPuzzleAnswer(puzzleName, userAnswer) {
-    console.log(gameSolutions[puzzleName] + " guess: " + userAnswer);
-
-    userAnswer = userAnswer.toLowerCase();
-
-    if (!hasWonPuzzle(puzzleName)) {
-        if (userAnswer == gameSolutions[puzzleName]) {
-            updateGameLog(puzzleName, true);
-            console.log(`Correct Answer ${puzzleName} puzzle completed`);
-            return true;
-        }
-        else {
-            console.log("Incorrect Answer")
-            return false;
-        }
-    } else {
-        console.log(`${puzzleName} has already been won`);
-        return true;
-    }
-
-}
-
-function checkLessonsPuzzleEventHandler() {
-    //alert("event handler worked");
-    checkPuzzleAnswer('lessons', document.forms['lessonsEntry']['password'].value);
-}
-
-function checkRegretsPuzzleEventHandler() {
-    checkPuzzleAnswer('regrets', 'regret4Key')
-    alert("you finished the regrets Puzzle")
-}
-
-function clickABoutPhoto() {
-    window.location.href = "./about2.html";
-
-}
-
-function isButtonWorking() {
-    console.log('button test')
-}
-
-function checkAboutPuzzleEventHandler(){
-    updateGameLog('about', true)
-}
-
-function checkContainmentPuzzleEventHandler(){
-    updateGameLog('containment', true)
-}
-
-if (hasWon()){
-    alert("You've won all the games");
-}
-*/
 gameProgress();
-backgroundOpacity();
-
+backgroundOpacity(); //only used on the home page //maybe add to main in 
 
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
 //inner functions get called that create other event handlers for each page.
@@ -233,37 +80,18 @@ document.addEventListener("DOMContentLoaded", () => {
             Error Message: ${error.message}`)
         }
     }
+    /*
+    if (document.title.toLowerCase() === "home"){
+        try{
+            gameProgress();
+            backgroundOpacity(); //only used on the home page //maybe add to main in 
+        }
+        catch(error){
+            console.log(
+                `Opacity Functions: [Home]
+                Error Message: ${error.message}`)
+        }
+    }*/
 }, false);
 
 //The being we interact with ideally will look like a combination of Alt Cunningham from Cyberpunk 2077 mixed with Undertale pixel art style.
-
-// checkPuzzleAnswer('lessons', 'testing');
-//hasWonPuzzle('lessons')
-//checkPuzzleAnswer('lessons', 'presa');
-//checkPuzzleAnswer('lessons', 'presage');
-//console.log(userGameLog);
-
-//Testing Functions
-/*
-gameProgress();
-
-updateGameLog('lessons', '456');
-updateGameLog('lessons23', '456');//wrong key name does not accidentally create a new item in the object
-updateGameLog('about', '789');
-updateGameLog('containment', '789');
-updateGameLog('regrets', '789');
-updateGameLog('support', '789');
-
-console.log("Has Game Started? " + hasGameStarted());
-
-console.log(getGameLog());
-
-console.log(`Game Completion: ${gameProgress() * 100}%`);
-
-console.log(hasWon());
-*/
-
-
-//window.localStorage.removeItem(gameLogKey);
-
-//testing if git config changes

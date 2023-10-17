@@ -1,8 +1,11 @@
-import { containmentEntry, imprisonment, isPrisoner } from '../scripts/Library.js'
+import { containmentEntry, imprisonment, isPrisoner, start } from '../scripts/Library.js'
 
 console.log(isPrisoner())
 
+//Check if User has completed containment
 imprisonment();
+//checking if user is New and starting tutorial script
+start();
 
 document.addEventListener("DOMContentLoaded", () => {
     if (document.title === 'Containment') {
@@ -12,22 +15,3 @@ document.addEventListener("DOMContentLoaded", () => {
         })
     }
 })
-
-//checking if user is New and starting tutorial script
-function isNew() {
-    let $readValue = sessionStorage['newSession'];
-    if ($readValue !== 'false') {
-        let $newSession = 'true'
-        sessionStorage['newSession'] = $newSession
-        console.log($readValue)
-        return true;
-    }
-}
-
-function start() {
-    if (isNew()) {
-        window.open('./start.html', '_self');
-    }
-}
-
-start()
