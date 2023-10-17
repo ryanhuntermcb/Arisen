@@ -172,8 +172,10 @@ document.addEventListener("DOMContentLoaded", () => {
         try {//event listeners for the Lessons page
             document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
-        catch {
-            console.log("Something went wrong with the [lessons] page Event Listeners")
+        catch(error) {
+            console.log(
+        `Event Listener: [lessons]
+        Error Message: ${error.message}`)
         }
     }
     if (document.title.toLowerCase() === 'regrets') {
@@ -194,22 +196,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('All Regrets should be displayed because the puzzle has already been won');
             }
         }
-        catch {
-            console.log("Something went wrong with the [regrets] page Event Listeners")
+        catch(error) {
+            console.log(
+            `Event Listener: [regrets]
+            Error Message: ${error.message}`)
         }
     }
     if (document.title.toLowerCase() === 'about') {
         try {//event listeners for the about page
             document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
-        } catch {
-            console.log("Something went wrong with the [about] page Event Listeners")
+        } catch(error) {
+            console.log(
+            `Event Listener: [about]
+            Error Message: ${error.message}`)
         }
     }
     if (document.title.toLowerCase() === 'about2') {
         try {//event listeners for the about page
             document.getElementById('responseButton').addEventListener("click", checkAboutPuzzleEventHandler);
-        } catch {
-            console.log("Something went wrong with the [about2] page Event Listeners")
+        } catch(error) {
+            console.log(
+            `Event Listener: [about2]
+            Error Message: ${error.message}`)
         }
     }
     if (document.title.toLowerCase() === "support") {
@@ -219,8 +227,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             document.getElementById('winAboutGame').addEventListener("click", checkAboutPuzzleEventHandler);
             document.getElementById('winContainmentGame').addEventListener("click", checkContainmentPuzzleEventHandler);
-        } catch {
-            console.log("Something went wrong with the [support] page Event Listeners")
+        } catch(error) {
+            console.log(
+            `Event Listener: [support]
+            Error Message: ${error.message}`)
         }
     }
 }, false);
