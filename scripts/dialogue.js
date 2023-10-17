@@ -1,7 +1,5 @@
 import { checkAboutPuzzleEventHandler } from "../scripts/Library.js";
 
-let input1 = "";
-
 const speech = {
     intro: "What are you looking at?&#8194;...<br><br>\
             Do you find me attractive?&#8194;...<br><br>\
@@ -30,6 +28,7 @@ const speech = {
             <i>For every you there is something like me.</i> Toodles!"
 };
 
+let input1 = "";
 let dialogueCounter = 0;
 
 function dialogue() {
@@ -39,14 +38,14 @@ function dialogue() {
             //gets input and resets input to blank
             input1 = document.getElementById('response').value;
             document.getElementById('response').value = "";
-            let dialoguecounter = dialogueCounter++;
+            dialogueCounter++;
         }
 
         //After user inputs name
         if (dialogueCounter === 1) {
             //if user inputs no name causes spam
             if (input1 === "") {
-                badResponse1 = "THAT'S NOT A NAME"
+                let badResponse1 = "THAT'S NOT A NAME"
 
                 for (let i = 0; i < 1000; i++) {
                     document.getElementById("dialogue").textContent += badResponse1;
@@ -89,7 +88,7 @@ function dialogue() {
 
             let input2 = document.getElementById('response').value;
             document.getElementById('response').value = "";
-            let dialoguecounter = dialogueCounter++;
+            dialogueCounter++;
 
             if (input2 === "") {
                 document.getElementById("dialogue").innerHTML = speech.response2empty;
@@ -107,7 +106,7 @@ function dialogue() {
 
             let input3 = document.getElementById('response').value;
             document.getElementById('response').value = "";
-            let dialoguecounter = dialogueCounter++;
+            dialogueCounter++;
 
             if (input3 === "") {
 
@@ -135,8 +134,8 @@ function dialogue() {
             }
         }
 
-    } catch {
-        console.log("Something went wrong with dialogue. Please refresh page")
+    } catch (error) {
+        console.log(error.message)
     }
 }
 
@@ -146,8 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.title.toLowerCase() === 'about2') {
         try {//event listeners for the about page
             document.getElementById('responseButton').addEventListener("click", dialogue);
-        } catch {
-            console.log("Something went wrong with the [about2] page Event Listeners")
+        } catch (error) {
+            console.log(error.message)
         }
     }
 })
