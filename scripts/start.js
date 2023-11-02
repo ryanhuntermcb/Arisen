@@ -30,7 +30,7 @@ function startScript() {
             isOld()
             window.open('./home.html', '_self');
         }
-    }, 500);    
+    }, 2250);    
 }
 
 startScript()
