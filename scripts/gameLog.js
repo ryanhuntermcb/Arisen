@@ -92,6 +92,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 Error Message: ${error.message}`)
         }
     }*/
+    if (document.title === 'Containment') {
+        document.getElementById('containmentButton').addEventListener("click", (btn) => {
+            btn.preventDefault();
+            containmentEntry();
+        })
+    }
 }, false);
 
 //The being we interact with ideally will look like a combination of Alt Cunningham from Cyberpunk 2077 mixed with Undertale pixel art style.
