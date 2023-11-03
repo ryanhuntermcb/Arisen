@@ -1,27 +1,34 @@
-import { 
-    gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler, 
-    checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler, 
+import {
+    gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler,
+    checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler,
     checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto //group these together
 } from "../scripts/Library.js";
-//I think we should use local storage if it is easier to add data to than to the Cookies in a browser.
 
-//We need some way to keep track of which puzzles have been completed, I think an object with an item for each game that can hold true when completed would be a good start.
-
-gameProgress();
-backgroundOpacity(); //only used on the home page //maybe add to main in 
+//Changes Opacity of Home/Welcome page depending on the number of games won
+if (document.title.toLowerCase() === "welcome") {
+    try {
+        console.log('Test')
+        gameProgress();
+        backgroundOpacity(); 
+    }
+    catch (error) {
+        console.log(
+            `Opacity Functions: [Home]
+                Error Message: ${error.message}`)
+    }
+}
 
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
-//at some point we will need to break this Javascript up into smaller files so stuff that is unique to a page doesn't have to be error handled
 document.addEventListener("DOMContentLoaded", () => {
     if (document.title.toLowerCase() === 'lessons') {
         try {//event listeners for the Lessons page
             document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
-        catch(error) {
+        catch (error) {
             console.log(
-        `Event Listener: [lessons]
+                `Event Listener: [lessons]
         Error Message: ${error.message}`)
         }
     }
@@ -43,27 +50,27 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log('All Regrets should be displayed because the puzzle has already been won');
             }
         }
-        catch(error) {
+        catch (error) {
             console.log(
-            `Event Listener: [regrets]
+                `Event Listener: [regrets]
             Error Message: ${error.message}`)
         }
     }
     if (document.title.toLowerCase() === 'about') {
         try {//event listeners for the about page
             document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
-        } catch(error) {
+        } catch (error) {
             console.log(
-            `Event Listener: [about]
+                `Event Listener: [about]
             Error Message: ${error.message}`)
         }
     }
     if (document.title.toLowerCase() === 'about2') {
         try {//event listeners for the about page
             document.getElementById('responseButton').addEventListener("click", checkAboutPuzzleEventHandler);
-        } catch(error) {
+        } catch (error) {
             console.log(
-            `Event Listener: [about2]
+                `Event Listener: [about2]
             Error Message: ${error.message}`)
         }
     }
@@ -74,24 +81,12 @@ document.addEventListener("DOMContentLoaded", () => {
             });
             document.getElementById('winAboutGame').addEventListener("click", checkAboutPuzzleEventHandler);
             document.getElementById('winContainmentGame').addEventListener("click", checkContainmentPuzzleEventHandler);
-        } catch(error) {
+        } catch (error) {
             console.log(
-            `Event Listener: [support]
+                `Event Listener: [support]
             Error Message: ${error.message}`)
         }
     }
-    /*
-    if (document.title.toLowerCase() === "home"){
-        try{
-            gameProgress();
-            backgroundOpacity(); //only used on the home page //maybe add to main in 
-        }
-        catch(error){
-            console.log(
-                `Opacity Functions: [Home]
-                Error Message: ${error.message}`)
-        }
-    }*/
     if (document.title === 'Containment') {
         document.getElementById('containmentButton').addEventListener("click", (btn) => {
             btn.preventDefault();
