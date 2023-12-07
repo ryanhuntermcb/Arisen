@@ -146,7 +146,7 @@ input {
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
-  margin-top: 740x;
+  margin-top: 740px;
   z-index: -6;
 }
 
@@ -157,7 +157,7 @@ input {
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
   margin-top: 740px;
-  z-index: -6;
+  z-index: -6; 
   opacity: 0.45;
 }
 
@@ -179,7 +179,6 @@ span {
 #EntryForm {
   margin: 0 auto;
 }
-
 .prisonerWarning {
   height: 90vh;
   display: flex;
@@ -210,7 +209,7 @@ span {
   left: 0;
 }
 
-.nopupils {
+.nopupils{
   position: relative;
   top: 0;
   left: 0;
