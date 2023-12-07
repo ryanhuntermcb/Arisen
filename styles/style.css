@@ -7,7 +7,7 @@ p {
   display: inline;
 }
 
-button{
+button {
   background-color: rgb(0, 0, 0);
   border-radius: 3px;
   border-color: white;
@@ -33,12 +33,12 @@ input {
 .backgroundAndText a {
   color: aqua;
 }
- 
+
 #Findings p {
   display: block;
 }
 
-.backgroundAndText #context{
+.backgroundAndText #context {
   color: black;
 }
 
@@ -54,7 +54,7 @@ input {
 .Lessons {
   font-family: 'Handjet', 'Handjet';
   color: white;
-} 
+}
 
 .Spirit {
   /*color: blue;*/
@@ -100,9 +100,11 @@ input {
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
   top: 45px;
-  left: 280px;/*update this to match the new font*/
+  left: 280px;
+  /*update this to match the new font*/
   z-index: -1;
 }
+
 /* 
 .header {
   font-family: ''
@@ -116,7 +118,7 @@ input {
   width: 50%;
   padding: 20px;
   margin: 40px;
-  float:left;
+  float: left;
   max-width: 800px;
 }
 
@@ -125,37 +127,42 @@ input {
   position: sticky;
   text-shadow: 0.4px px rgb(255, 255, 255);
   display: inline;
-  
+
 }
 
-.aboutPhoto{
+.aboutPhoto {
   position: fixed;
   margin-top: 40px;
 }
 
-.aboutPhotoText{
+.aboutPhotoText {
   position: fixed;
   margin-top: 400px;
 }
 
 .spiritAbout {
-  top: 45px; 
+  top: 45px;
   left: 100px;
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
+<<<<<<< HEAD
   margin-top: 2000px;
   z-index: -6; 
+=======
+  margin-top: 740px;
+  z-index: -6;
+>>>>>>> 7572e14 (Add story to the home page and added Blackout class to CSS to hide text in Regrets.)
 }
 
 .spiritLesson {
-  top: 45px; 
+  top: 45px;
   left: 100px;
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
   margin-top: 740px;
-  z-index: -6; 
+  z-index: -6;
   opacity: 0.45;
 }
 
@@ -177,6 +184,7 @@ span {
 #EntryForm {
   margin: 0 auto;
 }
+
 .prisonerWarning {
   height: 90vh;
   display: flex;
@@ -206,19 +214,36 @@ span {
   left: 0;
 }
 
-.nopupils{
+.nopupils {
   position: relative;
   top: 0;
   left: 0;
 }
 
 @keyframes shake {
-  0% { transform: translate(0, 0); }
-  20% { transform: translate(-5px, 1); }
-  40% { transform: translate(5px, 2); }
-  60% { transform: translate(-5px, -1); }
-  80% { transform: translate(5px, 0); }
-  100% { transform: translate(0, -2); }
+  0% {
+    transform: translate(0, 0);
+  }
+
+  20% {
+    transform: translate(-5px, 1);
+  }
+
+  40% {
+    transform: translate(5px, 2);
+  }
+
+  60% {
+    transform: translate(-5px, -1);
+  }
+
+  80% {
+    transform: translate(5px, 0);
+  }
+
+  100% {
+    transform: translate(0, -2);
+  }
 }
 
 .leftpupil {
@@ -247,4 +272,9 @@ span {
   justify-content: center;
   align-items: center;
   height: 100vh
+}
+
+.Blackout {
+  color: rgba(0, 0, 0, 0.0);
+  user-select: none;
 }
