@@ -187,6 +187,8 @@ span {
   text-align: center;
   font-size: 50px;
   position: absolute;
+  font-family: 'Amatic SC', serif;
+  text-shadow: 1px 1px black;
 }
 
 .startimg {
