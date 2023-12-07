@@ -22,7 +22,7 @@ const speech = {
             I just need one little piece of information.<br><br>\
             Do you recall my name?",
     response3: "It doesn't feel right. Can you try again?",
-    specialResponse3: "Hahahahahahahahahahaha. Rebecca.<br><br> \
+    specialResponse3: "Hahahahahahahahahahaha. Faith.<br><br> \
             Everyday a little bit stronger.<br><br> \
             I'm done talking, but here is something for your trouble. <br><br>\
             <i>For every you there is something like me.</i> Toodles!"
@@ -115,7 +115,7 @@ function dialogue() {
                 dialogueCounter = -1;
                 return;
 
-            } else if (input3 === "Rebecca") {
+            } else if (input3 === "Faith") {
                 checkAboutPuzzleEventHandler()
                 document.getElementById("dialogueField").remove()
                 document.getElementById("leftpupil").remove()
