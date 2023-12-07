@@ -1,7 +1,7 @@
 import {
     gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler,
     checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler,
-    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto //group these together
+    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto, containmentEntry //group these together
 } from "../scripts/Library.js";
 
 //Changes Opacity of Home/Welcome page depending on the number of games won
