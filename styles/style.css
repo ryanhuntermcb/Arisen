@@ -8,6 +8,7 @@ p {
 }
 
 button {
+button {
   background-color: rgb(0, 0, 0);
   border-radius: 3px;
   border-color: white;
@@ -147,7 +148,11 @@ input {
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
 <<<<<<< HEAD
+<<<<<<< HEAD
   margin-top: 2000px;
+=======
+  margin-top: 740px;
+>>>>>>> 66bf9c1 (Add story to the home page and added Blackout class to CSS to hide text in Regrets.)
   z-index: -6; 
 =======
   margin-top: 740px;
