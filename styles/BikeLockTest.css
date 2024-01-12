@@ -1,0 +1,15 @@
+@keyframes MoveTextDown {
+    from {top: 0px;}
+    to {top: 100px;}
+}
+
+.MoveTextAnimationDown {
+    animation: MoveTextDown 5s linear 1s infinite;
+}
+
+.BoxAroundAllText {
+    border: 3px solid black
+    ;width: 20px
+    ;position: absolute;
+    /* animation: MoveTextDown 5s; */
+}
