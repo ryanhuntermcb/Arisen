@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./styles/BikeLockTest.css">
+    <title>Bike Lock Test</title>
+    <script type="module" src="scripts/BikeLockTest.js"></script>
+</head>
+<body>
+    <div class="BikeLockParent" style="position: relative; height: 100px;width: 100px;">
+        <div id="TextButtonOne"  class="MoveTextButton">Button</div>
+        <div id="TextBoxLarge" class="BoxAroundAllText MoveTextAnimationDown">
+            <p></p>
+            <div id="TextOne" class="LockText" style="writing-mode: vertical-rl;text-orientation: upright;" ></div>
+        </div>
+        <div class="BoxAroundSelectedText" style="border: 3px solid black;width: 20px;height: 20px;position: absolute;z-index: 10;top: 15px;"></div>
+    </div>
+</body>
+</html>
