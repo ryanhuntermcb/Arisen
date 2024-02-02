@@ -1,6 +1,11 @@
 @keyframes MoveTextDown {
-    from {top: 0px;}
-    to {top: 100px;}
+    from {
+        top: 0px;
+    }
+
+    to {
+        top: 30px;
+    }
 }
 
 .MoveTextAnimationDown {
@@ -8,8 +13,43 @@
 }
 
 .BoxAroundAllText {
-    border: 3px solid black
-    ;width: 20px
-    ;position: absolute;
+    border: 3px solid black;
+    width: 20px;
+    position: absolute;
     /* animation: MoveTextDown 5s; */
 }
+
+.BoxAroundSelectedText {
+    border: 3px solid black;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    z-index: 10;
+    top: 69px;
+}
+
+.LockText {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+}
+
+.BikeLockParent {
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+
+@keyframes fadeInUp {
+    0% {
+      /* transform: translateY(100%); */
+      opacity: 0;
+    }
+    100% {
+      /* transform: translateY(0%); */
+      opacity: 1;
+    }
+  }
+  
+  .fadeInUp-animation {
+    animation: 1.5s fadeInUp;
+  }
