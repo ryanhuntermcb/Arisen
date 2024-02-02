@@ -7,12 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Hello Again")
 
-    let TestArray = ['a', 'b', 'c']
+    let TestArray = ['#', 'a', 'b', 'c', '#']
     
     console.log(TestArray);
     
-    document.getElementById('TextOne').innerHTML = TestArray.join("");
-
+    //document.getElementById('TextOne').innerHTML = TestArray.join("");
+/*
     ButtonOne.addEventListener('click', ()=>{
         if(!LargeTextBox.classList.contains("MoveTextAnimationDown")){
             LargeTextBox.classList.add("MoveTextAnimationDown")
@@ -23,6 +23,31 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(2)
         }
     })
+*/
 
+    let Ptext = document.getElementById("Text")
+    Ptext.addEventListener('click', ()=>{
+        if(!Ptext.classList.contains("fadeInUp-animation")){
+            Ptext.classList.add("fadeInUp-animation")
+            console.log(3)
+            Ptext.innerHTML='New'
+            
+        }
+        else {
+            Ptext.classList.remove("fadeInUp-animation")
+            console.log(4)
+        }
+    })
 })
 
+//Function to add drop downs
+//required inputs : Object containing number of Selections with arrays of objects
+/*
+{
+    PuzzleName = "SelectorName"
+    Options = {
+        1 = [a,b,c]
+        2 = [d,e,f]
+    }
+}
+*/
