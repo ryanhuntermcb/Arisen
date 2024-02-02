@@ -147,13 +147,8 @@ input {
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
-<<<<<<< HEAD
-  margin-top: 2000px;
-  z-index: -6; 
-=======
-  margin-top: 740px;
+  margin-top: 740x;
   z-index: -6;
->>>>>>> 7572e14 (Add story to the home page and added Blackout class to CSS to hide text in Regrets.)
 }
 
 .spiritLesson {
