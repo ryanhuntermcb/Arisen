@@ -115,16 +115,16 @@ function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    let PuzzleContainer = document.getElementById('PuzzleContainer')
+    let PuzzleContainerId = 'PuzzleContainer'
+    let PuzzleSolution = 'solution'
+
+    let PuzzleContainer = document.getElementById(PuzzleContainerId)
     let StatusText = document.getElementById('StatusText')
 
-    //CreateOneWheelLetterOption([1, 2, 3], 'PuzzleContainer', 'Letter1')
-    //CreateOneWheelLetterOption([4, 5, 6], 'PuzzleContainer', 'Letter2')
-
-    CreateBikeLockPuzzle('soluTion', 4, 'TestPuzzle', 'PuzzleContainer');
+    CreateBikeLockPuzzle(PuzzleSolution, 4, 'TestPuzzle', PuzzleContainerId);
 
     PuzzleContainer.addEventListener("click", () => {
-        if (IsPuzzleSolved('PuzzleContainer', 'solution')) {
+        if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
             StatusText.innerHTML = "Puzzle Solved"
         }
         else {
@@ -132,5 +132,10 @@ document.addEventListener("DOMContentLoaded", () => {
             //console.log("Incorrect Combination")
         }
     })
+
+        
+    //CreateOneWheelLetterOption([1, 2, 3], 'PuzzleContainer', 'Letter1')
+    //CreateOneWheelLetterOption([4, 5, 6], 'PuzzleContainer', 'Letter2')
+
 })
 
