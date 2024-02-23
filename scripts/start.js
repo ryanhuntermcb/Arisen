@@ -22,7 +22,7 @@ function startScript() {
             if (i === 6){
                 console.log("opacity")
                 let background = document.getElementsByClassName("startimg")[0];
-                let opacityValue = 0.10;
+                let opacityValue = 0.07;
                 background.style.opacity = opacityValue;
             }
         } else {
