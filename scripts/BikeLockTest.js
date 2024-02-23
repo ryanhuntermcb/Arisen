@@ -1,6 +1,19 @@
 
 document.addEventListener("DOMContentLoaded", () => {
     
+    let inputArray = ['1','2','3']
+
+    inputArray.forEach((i)=>{
+        console.log('x')
+    }
+
+    )
+    let optionInput = "xyz"
+    let optionTemplate = `<option value=${optionInput}>${optionInput}</option>`
+
+    document.getElementById('bun').innerHTML += optionTemplate
+
+    /*
     let ButtonOne = document.getElementById("TextButtonOne");
     let LargeTextBox = document.getElementById("TextBoxLarge");
     console.log(ButtonOne);
@@ -10,7 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let TestArray = ['#', 'a', 'b', 'c', '#']
     
     console.log(TestArray);
-    
+    */
+
+
     //document.getElementById('TextOne').innerHTML = TestArray.join("");
 /*
     ButtonOne.addEventListener('click', ()=>{
@@ -24,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     })
 */
-
+/*
     let Ptext = document.getElementById("Text")
     Ptext.addEventListener('click', ()=>{
         if(!Ptext.classList.contains("fadeInUp-animation")){
@@ -38,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(4)
         }
     })
+    */
 })
 
 //Function to add drop downs
