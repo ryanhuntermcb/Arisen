@@ -135,6 +135,11 @@ input {
   margin-top: 40px;
 }
 
+.lessonPhoto {
+  width: 600px;
+  padding: 20px;
+}
+
 .aboutPhotoText {
   position: fixed;
   margin-top: 400px;
