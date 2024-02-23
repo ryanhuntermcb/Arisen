@@ -21,100 +21,116 @@ function CreateOneWheelLetterOption(inputArray, inputTargetContainerId, inputSel
         }
 
         let optionTemplate = `<option value=${inputArray[i]}>${inputArray[i]}</option>`
-        
+
         document.getElementById(inputSelectListName).innerHTML += optionTemplate
     }
 }
 
+function CreateBikeLockPuzzle(PuzzleSolution, PuzzleDifficulty, PuzzleName, TargetContainerId) {
+    PuzzleSolution = String(PuzzleSolution).toLowerCase()
+    let NumberOfWheels = PuzzleSolution.length
+    let PuzzleSolutionArray = PuzzleSolution.split('')
+    let TargetContainer = document.getElementById(TargetContainerId)
+    TargetContainer.innerHTML = '' //The puzzle should be the only thing inside of the target container
+
+    //Ensure PuzzleDifficulty is between 1 and 10
+    if (!(PuzzleDifficulty > 0)) {
+        PuzzleDifficulty = 1
+    }
+    if (PuzzleDifficulty > 10) {
+        PuzzleDifficulty = 10
+    }
+
+    //console.log(PuzzleSolutionArray) //Answer but split into Array
+
+    for (let i = 0; i < NumberOfWheels; i++) {
+        let start = PuzzleSolutionArray[i]
+        let arrayTest = [start]
+        let i2 = 0
+
+        while (i2 < PuzzleDifficulty) {
+            let rand = randomLetter()
+            if (arrayTest.includes(rand)) {
+                continue
+            }
+            else {
+                //console.log(rand)
+                arrayTest.push(rand)
+                i2++
+                //console.log(randomIndex(5))
+            }
+        }
+
+        //Solution letter index swap
+        let swapToIndex = randomIndex(arrayTest.length)
+
+        let swapFrom = arrayTest[0]
+        arrayTest[0] = arrayTest[swapToIndex]
+        arrayTest[swapToIndex] = swapFrom
+
+        CreateOneWheelLetterOption(arrayTest, TargetContainerId, `${PuzzleName}${i}`)
+
+        //console.log(swapToIndex)
+        //console.log(arrayTest)
+        PuzzleSolutionArray[i] = arrayTest
+
+        //let finish = 
+    }
+
+
+    //console.log(PuzzleSolutionArray)
+    for (let i = 0; i < NumberOfWheels; i++) {
+        //CreateOneWheelLetterOption(PuzzleSolutionArray[i],inputTargetContainerId, inputSelectListName)
+    }
+
+}
+
+function randomLetter() {
+    const lowercaseAsciiStart = 97;
+    const letterIndex = Math.floor(Math.random() * 26);
+    const letter = String.fromCharCode(lowercaseAsciiStart + letterIndex);
+    return letter
+}
+
+function randomIndex(ArrayLength) {
+    return Math.floor(Math.random() * ArrayLength)   //this should be a random spot
+}
+
+function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
+    let PuzzleParent = document.getElementById(PuzzleContainerId).children
+    //console.log(PuzzleParent)
+
+    let currentAnswer = ''
+    for (let i = 0; i < PuzzleParent.length; i++) {
+        currentAnswer += PuzzleParent[i].value
+    }
+
+    if (currentAnswer == PuzzleSolution) {
+        return true
+    }
+    else {
+        return false
+    }
+
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    //let optionTemplate = `<option value=${optionInput}>${optionInput}</option>`
-    CreateOneWheelLetterOption([1,2,3], 'PuzzleContainer', 'Letter1')
-    CreateOneWheelLetterOption([4,5,6], 'PuzzleContainer', 'Letter2')
+    let PuzzleContainer = document.getElementById('PuzzleContainer')
+    let StatusText = document.getElementById('StatusText')
 
-/*
-    let inputArray = ['1', '2', '3']
-    let inputTargetContainerId = 'PuzzleContainer'
-    let inputSelectListName = 'TestList'
+    //CreateOneWheelLetterOption([1, 2, 3], 'PuzzleContainer', 'Letter1')
+    //CreateOneWheelLetterOption([4, 5, 6], 'PuzzleContainer', 'Letter2')
 
-    let TargetContainer = document.getElementById(inputTargetContainerId)
-    TargetContainer.innerHTML += `<select name=${inputSelectListName} id=${inputSelectListName} class="dropbtn "></select>`
+    CreateBikeLockPuzzle('soluTion', 4, 'TestPuzzle', 'PuzzleContainer');
 
-    console.log(inputArray.length)
-    for (let i = 0; i < inputArray.length; i++) {
-        console.log(`${i} and ${inputArray.length}`)
-
-        let firstElement = ''
-
-        if (i == 0) {
-            firstElement = 'Select'
+    PuzzleContainer.addEventListener("click", () => {
+        if (IsPuzzleSolved('PuzzleContainer', 'solution')) {
+            StatusText.innerHTML = "Puzzle Solved"
         }
-        let optionTemplate = `<option value=${inputArray[i]}>${inputArray[i]}</option>`
-        document.getElementById(inputSelectListName).innerHTML += optionTemplate
-    }
-    */
-    /*
-        for (let i = 0; i < inputArray.length ; i++) {
-            let firstElement = (i = 0 ? 'selected' : '')
-            let optionTemplate = `<option value=${optionInput} ${firstElement}>${optionInput}</option>`
-            document.getElementById('bun').innerHTML += optionTemplate
-            console.log('test')
+        else {
+            StatusText.innerHTML = "Incorrect Combination"
+            //console.log("Incorrect Combination")
         }
-    */
-
-    //document.getElementById('bun').innerHTML += optionTemplate
-
-    /*
-    let ButtonOne = document.getElementById("TextButtonOne");
-    let LargeTextBox = document.getElementById("TextBoxLarge");
-    console.log(ButtonOne);
-
-    console.log("Hello Again")
-
-    let TestArray = ['#', 'a', 'b', 'c', '#']
-    
-    console.log(TestArray);
-    */
-
-
-    //document.getElementById('TextOne').innerHTML = TestArray.join("");
-    /*
-        ButtonOne.addEventListener('click', ()=>{
-            if(!LargeTextBox.classList.contains("MoveTextAnimationDown")){
-                LargeTextBox.classList.add("MoveTextAnimationDown")
-                console.log(1)
-            }
-            else {
-                LargeTextBox.classList.remove("MoveTextAnimationDown")
-                console.log(2)
-            }
-        })
-    */
-    /*
-        let Ptext = document.getElementById("Text")
-        Ptext.addEventListener('click', ()=>{
-            if(!Ptext.classList.contains("fadeInUp-animation")){
-                Ptext.classList.add("fadeInUp-animation")
-                console.log(3)
-                Ptext.innerHTML='New'
-                
-            }
-            else {
-                Ptext.classList.remove("fadeInUp-animation")
-                console.log(4)
-            }
-        })
-        */
+    })
 })
 
-//Function to add drop downs
-//required inputs : Object containing number of Selections with arrays of objects
-/*
-{
-    PuzzleName = "SelectorName"
-    Options = {
-        1 = [a,b,c]
-        2 = [d,e,f]
-    }
-}
-*/
