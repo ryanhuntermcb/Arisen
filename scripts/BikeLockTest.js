@@ -1,69 +1,141 @@
+function CreateOneWheelLetterOption(inputArray, inputTargetContainerId, inputSelectListName) {
+    let inputArrayLength
+    let TargetContainer = document.getElementById(inputTargetContainerId)
 
-document.addEventListener("DOMContentLoaded", () => {
-    
-    let inputArray = ['1','2','3']
-
-    inputArray.forEach((i)=>{
-        console.log('x')
+    if (Array.isArray(inputArray)) {
+        inputArrayLength = inputArray.length
+    }
+    else {
+        inputArrayLength = 1
     }
 
-    )
-    let optionInput = "xyz"
-    let optionTemplate = `<option value=${optionInput}>${optionInput}</option>`
+    TargetContainer.innerHTML += `<select name=${inputSelectListName} id=${inputSelectListName} class="dropbtn "></select>`
 
-    document.getElementById('bun').innerHTML += optionTemplate
+    for (let i = 0; i < inputArrayLength; i++) {
+        //console.log(`${i} and ${inputArrayLength}`)
 
-    /*
-    let ButtonOne = document.getElementById("TextButtonOne");
-    let LargeTextBox = document.getElementById("TextBoxLarge");
-    console.log(ButtonOne);
+        let firstElement = ''
 
-    console.log("Hello Again")
-
-    let TestArray = ['#', 'a', 'b', 'c', '#']
-    
-    console.log(TestArray);
-    */
-
-
-    //document.getElementById('TextOne').innerHTML = TestArray.join("");
-/*
-    ButtonOne.addEventListener('click', ()=>{
-        if(!LargeTextBox.classList.contains("MoveTextAnimationDown")){
-            LargeTextBox.classList.add("MoveTextAnimationDown")
-            console.log(1)
+        if (i == 0) {
+            firstElement = 'Select'
         }
-        else {
-            LargeTextBox.classList.remove("MoveTextAnimationDown")
-            console.log(2)
+
+        let optionTemplate = `<option value=${inputArray[i]}>${inputArray[i]}</option>`
+
+        document.getElementById(inputSelectListName).innerHTML += optionTemplate
+    }
+}
+
+function CreateBikeLockPuzzle(PuzzleSolution, PuzzleDifficulty, PuzzleName, TargetContainerId) {
+    PuzzleSolution = String(PuzzleSolution).toLowerCase()
+    let NumberOfWheels = PuzzleSolution.length
+    let PuzzleSolutionArray = PuzzleSolution.split('')
+    let TargetContainer = document.getElementById(TargetContainerId)
+    TargetContainer.innerHTML = '' //The puzzle should be the only thing inside of the target container
+
+    //Ensure PuzzleDifficulty is between 1 and 10
+    if (!(PuzzleDifficulty > 0)) {
+        PuzzleDifficulty = 1
+    }
+    if (PuzzleDifficulty > 10) {
+        PuzzleDifficulty = 10
+    }
+
+    //console.log(PuzzleSolutionArray) //Answer but split into Array
+
+    for (let i = 0; i < NumberOfWheels; i++) {
+        let start = PuzzleSolutionArray[i]
+        let arrayTest = [start]
+        let i2 = 0
+
+        while (i2 < PuzzleDifficulty) {
+            let rand = randomLetter()
+            if (arrayTest.includes(rand)) {
+                continue
+            }
+            else {
+                //console.log(rand)
+                arrayTest.push(rand)
+                i2++
+                //console.log(randomIndex(5))
+            }
         }
-    })
-*/
-/*
-    let Ptext = document.getElementById("Text")
-    Ptext.addEventListener('click', ()=>{
-        if(!Ptext.classList.contains("fadeInUp-animation")){
-            Ptext.classList.add("fadeInUp-animation")
-            console.log(3)
-            Ptext.innerHTML='New'
-            
+
+        //Solution letter index swap
+        let swapToIndex = randomIndex(arrayTest.length)
+
+        let swapFrom = arrayTest[0]
+        arrayTest[0] = arrayTest[swapToIndex]
+        arrayTest[swapToIndex] = swapFrom
+
+        CreateOneWheelLetterOption(arrayTest, TargetContainerId, `${PuzzleName}${i}`)
+
+        //console.log(swapToIndex)
+        //console.log(arrayTest)
+        PuzzleSolutionArray[i] = arrayTest
+
+        //let finish = 
+    }
+
+
+    //console.log(PuzzleSolutionArray)
+    for (let i = 0; i < NumberOfWheels; i++) {
+        //CreateOneWheelLetterOption(PuzzleSolutionArray[i],inputTargetContainerId, inputSelectListName)
+    }
+
+}
+
+function randomLetter() {
+    const lowercaseAsciiStart = 97;
+    const letterIndex = Math.floor(Math.random() * 26);
+    const letter = String.fromCharCode(lowercaseAsciiStart + letterIndex);
+    return letter
+}
+
+function randomIndex(ArrayLength) {
+    return Math.floor(Math.random() * ArrayLength)   //this should be a random spot
+}
+
+function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
+    let PuzzleParent = document.getElementById(PuzzleContainerId).children
+    //console.log(PuzzleParent)
+
+    let currentAnswer = ''
+    for (let i = 0; i < PuzzleParent.length; i++) {
+        currentAnswer += PuzzleParent[i].value
+    }
+
+    if (currentAnswer == PuzzleSolution) {
+        return true
+    }
+    else {
+        return false
+    }
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    let PuzzleContainerId = 'PuzzleContainer'
+    let PuzzleSolution = 'solution'
+
+    let PuzzleContainer = document.getElementById(PuzzleContainerId)
+    let StatusText = document.getElementById('StatusText')
+
+    CreateBikeLockPuzzle(PuzzleSolution, 4, 'TestPuzzle', PuzzleContainerId);
+
+    PuzzleContainer.addEventListener("click", () => {
+        if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
+            StatusText.innerHTML = "Puzzle Solved"
         }
         else {
             StatusText.innerHTML = "Incorrect Combination"
             //console.log("Incorrect Combination")
         }
     })
-    */
+
+        
+    //CreateOneWheelLetterOption([1, 2, 3], 'PuzzleContainer', 'Letter1')
+    //CreateOneWheelLetterOption([4, 5, 6], 'PuzzleContainer', 'Letter2')
+
 })
 
-//Function to add drop downs
-//required inputs : Object containing number of Selections with arrays of objects
-/*
-{
-    PuzzleName = "SelectorName"
-    Options = {
-        1 = [a,b,c]
-        2 = [d,e,f]
-    }
-}
-*/
