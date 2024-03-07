@@ -27,7 +27,7 @@ function CreateOneWheelLetterOption(inputArray, inputTargetContainerId, inputSel
 }
 
 function CreateBikeLockPuzzle(PuzzleSolution, PuzzleDifficulty, PuzzleName, TargetContainerId) {
-    PuzzleSolution = String(PuzzleSolution).toLowerCase()
+    PuzzleSolution = String(PuzzleSolution).toUpperCase()
     let NumberOfWheels = PuzzleSolution.length
     let PuzzleSolutionArray = PuzzleSolution.split('')
     let TargetContainer = document.getElementById(TargetContainerId)
@@ -86,9 +86,9 @@ function CreateBikeLockPuzzle(PuzzleSolution, PuzzleDifficulty, PuzzleName, Targ
 }
 
 function randomLetter() {
-    const lowercaseAsciiStart = 97;
+    const uppercaseAsciiStart = 65;
     const letterIndex = Math.floor(Math.random() * 26);
-    const letter = String.fromCharCode(lowercaseAsciiStart + letterIndex);
+    const letter = String.fromCharCode(uppercaseAsciiStart + letterIndex);
     return letter
 }
 
@@ -114,7 +114,7 @@ function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
 
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+/*document.addEventListener("DOMContentLoaded", () => {
     let PuzzleContainerId = 'PuzzleContainer'
     let PuzzleSolution = 'solution'
 
@@ -138,4 +138,59 @@ document.addEventListener("DOMContentLoaded", () => {
     //CreateOneWheelLetterOption([4, 5, 6], 'PuzzleContainer', 'Letter2')
 
 })
+*/
 
+document.addEventListener("DOMContentLoaded", () => {
+    if (document.title.toLowerCase() === 'about') {
+        try {
+            let PuzzleContainerId = 'puzzle'
+            let PuzzleSolution = 'DARK'
+
+            let PuzzleContainer = document.getElementById(PuzzleContainerId)
+            let StatusText = document.getElementById('StatusText')
+
+            CreateBikeLockPuzzle(PuzzleSolution, 4, 'TestPuzzle', PuzzleContainerId);
+
+            PuzzleContainer.addEventListener("click", () => {
+                if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
+                    StatusText.innerHTML = "Puzzle Solved"
+                }
+                else {
+                    StatusText.innerHTML = "Incorrect Combination"
+                    //console.log("Incorrect Combination")
+                }
+            })
+
+        } catch (error) {
+            console.log(
+                `Event Listener: [about]
+            Error Message: ${error.message}`)
+        }
+    }
+    if (document.title.toLowerCase() === 'about') {
+        try {
+            let PuzzleContainerId = 'PuzzleContainer'
+            let PuzzleSolution = 'solution'
+
+            let PuzzleContainer = document.getElementById(PuzzleContainerId)
+            let StatusText = document.getElementById('StatusText')
+
+            CreateBikeLockPuzzle(PuzzleSolution, 4, 'TestPuzzle', PuzzleContainerId);
+
+             PuzzleContainer.addEventListener("click", () => {
+            if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
+                StatusText.innerHTML = "Puzzle Solved"
+            }
+            else {
+                StatusText.innerHTML = "Incorrect Combination"
+                //console.log("Incorrect Combination")
+            }
+        })
+
+        } catch (error) {
+            console.log(
+                `Event Listener: [about]
+            Error Message: ${error.message}`)
+        }
+    }
+}, false);

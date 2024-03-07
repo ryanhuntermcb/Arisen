@@ -111,23 +111,32 @@ input {
 } */
 
 .about-old {
+  width: 600px; /* Set a fixed width */
+  height: 400px; /* Set a fixed height */
+  overflow: hidden; /* Hide overflowing content */
   font-family: 'Syne Mono', monospace;
   color: rgb(0, 0, 0);
-  background-color: rgb(255, 255, 255);
   border-radius: 5px;
   width: 50%;
   padding: 20px;
   margin: 40px;
   float: left;
-  max-width: 800px;
+  max-width: 600px;
+  box-shadow: 5px 5px 100px black, 0 0 100px rgb(0, 0, 0) inset;
+  background: #b7938a;
 }
 
 .about {
   font-family: 'Handjet', 'Handjet';
   position: sticky;
   text-shadow: 0.4px px rgb(255, 255, 255);
-  display: inline;
+  display: block;
 
+}
+
+.aboutPuzzle {
+  margin-top: 520px;
+  margin-left: 20px;
 }
 
 .aboutPhoto {
@@ -151,7 +160,7 @@ input {
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
-  margin-top: 740px;
+  margin-top: 1500px;
   z-index: -6;
 }
 
