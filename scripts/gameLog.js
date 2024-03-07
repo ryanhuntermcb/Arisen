@@ -9,7 +9,7 @@ if (document.title.toLowerCase() === "welcome") {
     try {
         console.log('Test')
         gameProgress();
-        backgroundOpacity(); 
+        backgroundOpacity();
     }
     catch (error) {
         console.log(
@@ -53,7 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.getElementById('regret1Key').addEventListener("click", () => { document.getElementById('regret2').style.display = "block"; });
                 document.getElementById('regret2Key').addEventListener("click", () => { document.getElementById('regret3').style.display = "block"; });
                 document.getElementById('regret3Key').addEventListener("click", () => { document.getElementById('regret4').style.display = "block"; });
-                document.getElementById('regret4Key').addEventListener("click", checkRegretsPuzzleEventHandler);
+                document.getElementById('regret4Key').addEventListener("click", () => {
+                    checkRegretsPuzzleEventHandler();
+                    let regret2 = document.getElementById('regret2')
+                    let test = regret2.getElementsByTagName('span')
+                    for (let i of test) {
+                        i.classList.remove('Blackout')
+                    }
+                });
+
             }
             else {
                 console.log('All Regrets should be displayed because the puzzle has already been won');
