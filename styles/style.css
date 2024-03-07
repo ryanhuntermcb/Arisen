@@ -193,6 +193,7 @@ span {
 #EntryForm {
   margin: 0 auto;
 }
+
 .prisonerWarning {
   height: 90vh;
   display: flex;
@@ -229,6 +230,10 @@ span {
   left: 0;
 }
 
+.ARGModel {
+  animation: ARGshake 2s infinite;
+}
+
 @keyframes shake {
 
   0% {
@@ -255,6 +260,53 @@ span {
     transform: translate(0, -2);
   }
 }
+
+@keyframes ARGshake {
+  0% {
+    transform: translate(0, 0);
+  }
+
+  10% {
+    transform: translate(-30px, -30px) rotate(-10deg);
+  }
+
+  20% {
+    transform: translate(30px, 60px) rotate(10deg);
+  }
+
+  30% {
+    transform: translate(-20px, -45px) rotate(-10deg);
+  }
+
+  40% {
+    transform: translate(23px, 9px) rotate(10deg);
+  }
+
+  50% {
+    transform: translate(-20px, -75px) rotate(-10deg);
+  }
+
+  60% {
+    transform: translate(27px, 98px) rotate(10deg);
+  }
+
+  70% {
+    transform: translate(-10px, -10px) rotate(-10deg);
+  }
+
+  80% {
+    transform: translate(10px, 10px) rotate(10deg);
+  }
+
+  90% {
+    transform: translate(-40px, 50px) rotate(-10deg);
+  }
+
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
 
 .leftpupil {
   top: 155px;
