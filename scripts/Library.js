@@ -6,8 +6,8 @@
 //---------------------------------------------------
 
 //Puzzle Answers
-let Username = 'test'
-let Password = 'test'
+let Username = 'Daniel'
+let Password = 'ForgetMe'
 
 //Containment Form Function
 function containmentEntry() {
