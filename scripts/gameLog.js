@@ -24,6 +24,9 @@ if (document.title.toLowerCase() === "welcome") {
 document.addEventListener("DOMContentLoaded", () => {
     if (document.title.toLowerCase() === 'lessons') {
         try {//event listeners for the Lessons page
+            document.getElementById('ARGModel').addEventListener("click", () => {
+                document.getElementById('ARGModel').classList.add("ARGModel");
+              });
             document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
         catch (error) {
