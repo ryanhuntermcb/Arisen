@@ -280,3 +280,11 @@ span {
   background-color: rgb(255, 255, 255);
   user-select: none;
 }
+
+#regret2Key {
+  user-select: text;
+}
+
+#regret4Key {
+  font-weight: normal;
+}
