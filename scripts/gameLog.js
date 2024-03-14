@@ -8,24 +8,33 @@ import {
     CreateBikeLockPuzzle, IsPuzzleSolved //Bike Lock Puzzles
 } from "../scripts/Library.js";
 
-//Changes Opacity of Home/Welcome page depending on the number of games won
-if (document.title.toLowerCase() === "welcome") {
-    try {
-        console.log('Test')
-        gameProgress();
-        backgroundOpacity();
-    }
-    catch (error) {
-        console.log(
-            `Opacity Functions: [Home]
-                Error Message: ${error.message}`)
-    }
-}
+
 
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
 document.addEventListener("DOMContentLoaded", () => {
+    if (document.title.toLowerCase() === "welcome") {//Home.html
+        try {
+            //Changes Opacity of Home/Welcome page depending on the number of games won
+            backgroundOpacity();
+
+            let htmlLessons = `<a id="lessonsLink" href="./lessons.html">Lessons</a><br>`
+            let htmlRegrets = `<a id="regretsLink" href="./regrets.html">Regrets</a><br>`
+            let htmlContainment = `<a id="containment" href="./containment.html">Containment</a><br>`//old id='context' I don't think we need it anymore
+            let linkDiv = document.getElementById('link2')
+
+            //Makes links available depending on game stage.
+            getProgressTrackerState() > 0 ? linkDiv.innerHTML += htmlLessons : false;
+            getProgressTrackerState() > 1 ? linkDiv.innerHTML += htmlRegrets : false;
+            getProgressTrackerState() > 7 ? linkDiv.innerHTML += htmlContainment : false;
+        }
+        catch (error) {
+            console.log(
+                `Event Listener: [welcome]
+            Error Message: ${error.message}`)
+        }
+    }
     if (document.title.toLowerCase() === 'about') {
         try {//event listeners for the about page
             let PuzzleContainerId = 'puzzle'
@@ -52,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 })
             }
-            
+
             if (getProgressTrackerState() >= 1) {
                 StatusText.innerHTML = puzzleSolvedText
             }
