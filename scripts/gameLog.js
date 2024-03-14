@@ -24,8 +24,14 @@ if (document.title.toLowerCase() === "welcome") {
 document.addEventListener("DOMContentLoaded", () => {
     if (document.title.toLowerCase() === 'lessons') {
         try {//event listeners for the Lessons page
-            document.getElementById('ARGModel').addEventListener("click", () => {
+            document.getElementById('ARGModel').addEventListener("click", async () => {
                 document.getElementById('ARGModel').classList.add("ARGModel");
+                document.getElementById("1").innerHTML = ""
+                //document.getElementById('1').style.color = 'red';
+                for (let i = 0; i < 200; i++) {
+                    document.getElementById("1").textContent += "i have regrets. ";
+                    await new Promise(resolve => setTimeout(resolve, 10));
+                }
               });
             document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
