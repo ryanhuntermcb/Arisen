@@ -50,6 +50,10 @@ input {
   font-weight: bold;
 }
 
+.hidden {
+  display: none;
+}
+
 /*Lessons Styling*/
 .Lessons {
   font-family: 'Handjet', 'Handjet';
