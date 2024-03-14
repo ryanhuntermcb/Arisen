@@ -8,6 +8,7 @@ import {
     CreateBikeLockPuzzle, IsPuzzleSolved //Bike Lock Puzzles
 } from "../scripts/Library.js";
 
+let puzzleSolvedText = "Puzzle Solved"
 
 
 //This adds event listeners the outer most one waits for the DOM to be loaded so the HTML objects exist before the 
@@ -41,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let PuzzleSolution = 'DARK'
             let PuzzleContainer = document.getElementById(PuzzleContainerId)
             let StatusText = document.getElementById('StatusText')
-            let puzzleSolvedText = "Puzzle Solved"
+            //let puzzleSolvedText = "Puzzle Solved"
 
             console.log(getProgressTrackerState())
             if (getProgressTrackerState() >= 7) {//Link to Picture only available after puzzle #7 Regrets3
@@ -75,7 +76,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (document.title.toLowerCase() === 'lessons') {
-        try {//event listeners for the Lessons page
+        try {//event listeners and logic for the Lessons page
+            let PuzzleContainerId = 'lesson2BikeLock'
+            let PuzzleSolution = 'IAMFAITH'
+            let PuzzleContainer = document.getElementById(PuzzleContainerId)
+            let StatusText = document.getElementById('StatusText')
+
+            //Prevents pages access before appropriate progress level.
+            getProgressTrackerState() < 1 ? window.open('./Home.html', '_self') : false;
+
+            //Hides Lessons2 until after Regrets2
+            getProgressTrackerState() > 3 ? document.getElementById('2').classList.remove('hidden') : false;
+
+            //Creates Lesson2 BikeLock Puzzle
+            if (getProgressTrackerState() < 5) {
+                //Bike Lock Puzzle is only visible when it hasn't been solved
+                CreateBikeLockPuzzle(PuzzleSolution, 6, 'Lesson2', PuzzleContainerId);
+                PuzzleContainer.addEventListener("click", () => {
+                    if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
+                        incrementProgressTracker(5);//Puzzle #5
+                        StatusText.innerHTML = puzzleSolvedText
+                    }
+                    else {
+                        StatusText.innerHTML = "Incorrect Combination"
+                        //console.log("Incorrect Combination")
+                    }
+                })
+            }
+            if (getProgressTrackerState() >= 5){
+                StatusText.innerHTML = puzzleSolvedText
+            }
+
             document.getElementById('ARGModel').addEventListener("click", async () => {
                 document.getElementById('ARGModel').classList.add("ARGModel");
                 document.getElementById("1").innerHTML = ""
