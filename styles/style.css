@@ -231,7 +231,7 @@ span {
 }
 
 .ARGModel {
-  animation: ARGshake 2s infinite;
+  animation: ARGshake 0.1s infinite;
 }
 
 @keyframes shake {
@@ -267,39 +267,39 @@ span {
   }
 
   10% {
-    transform: translate(-30px, -30px) rotate(-10deg);
+    transform: translate(-5px, -4px) rotate(-10deg);
   }
 
   20% {
-    transform: translate(30px, 60px) rotate(10deg);
+    transform: translate(7px, 6px) rotate(10deg);
   }
 
   30% {
-    transform: translate(-20px, -45px) rotate(-10deg);
+    transform: translate(-2px, -4px) rotate(-10deg);
   }
 
   40% {
-    transform: translate(23px, 9px) rotate(10deg);
+    transform: translate(3px, 9px) rotate(10deg);
   }
 
   50% {
-    transform: translate(-20px, -75px) rotate(-10deg);
+    transform: translate(-2px, -1px) rotate(-10deg);
   }
 
   60% {
-    transform: translate(27px, 98px) rotate(10deg);
+    transform: translate(5px, 6px) rotate(10deg);
   }
 
   70% {
-    transform: translate(-10px, -10px) rotate(-10deg);
+    transform: translate(-4px, -5px) rotate(-10deg);
   }
 
   80% {
-    transform: translate(10px, 10px) rotate(10deg);
+    transform: translate(5px, 4px) rotate(10deg);
   }
 
   90% {
-    transform: translate(-40px, 50px) rotate(-10deg);
+    transform: translate(-4px, 5px) rotate(-10deg);
   }
 
   100% {
