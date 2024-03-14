@@ -1,7 +1,11 @@
 import {
     gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler,
     checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler,
-    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto, containmentEntry //group these together
+    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto, containmentEntry, //group these together
+
+    resetProgress, getProgressTrackerState, incrementProgressTracker, //New Progress Tracker
+    getOverallProgress, areAllPuzzlesComplete, //New Progress Tracker
+    CreateBikeLockPuzzle, IsPuzzleSolved //Bike Lock Puzzles
 } from "../scripts/Library.js";
 
 //Changes Opacity of Home/Welcome page depending on the number of games won
@@ -22,6 +26,45 @@ if (document.title.toLowerCase() === "welcome") {
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
 document.addEventListener("DOMContentLoaded", () => {
+    if (document.title.toLowerCase() === 'about') {
+        try {//event listeners for the about page
+            let PuzzleContainerId = 'puzzle'
+            let PuzzleSolution = 'DARK'
+            let PuzzleContainer = document.getElementById(PuzzleContainerId)
+            let StatusText = document.getElementById('StatusText')
+            let puzzleSolvedText = "Puzzle Solved"
+
+            console.log(getProgressTrackerState())
+            if (getProgressTrackerState() >= 7) {//Link to Picture only available after puzzle #7 Regrets3
+                document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
+            }
+
+            if (getProgressTrackerState() < 1) {//Bike Lock Puzzle is only visible when it hasn't been solved
+                CreateBikeLockPuzzle(PuzzleSolution, 4, 'TestPuzzle', PuzzleContainerId);
+                PuzzleContainer.addEventListener("click", () => {
+                    if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
+                        incrementProgressTracker(1);//Puzzle #1
+                        StatusText.innerHTML = puzzleSolvedText
+                    }
+                    else {
+                        StatusText.innerHTML = "Incorrect Combination"
+                        //console.log("Incorrect Combination")
+                    }
+                })
+            }
+            
+            if (getProgressTrackerState() >= 1) {
+                StatusText.innerHTML = puzzleSolvedText
+            }
+
+
+        } catch (error) {
+            console.log(
+                `Event Listener: [about]
+            Error Message: ${error.message}`)
+        }
+    }
+
     if (document.title.toLowerCase() === 'lessons') {
         try {//event listeners for the Lessons page
             document.getElementById('ARGModel').addEventListener("click", async () => {
@@ -32,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     document.getElementById("1").textContent += "i have regrets. ";
                     await new Promise(resolve => setTimeout(resolve, 10));
                 }
-              });
+            });
             document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
         catch (error) {
@@ -73,15 +116,10 @@ document.addEventListener("DOMContentLoaded", () => {
             Error Message: ${error.message}`)
         }
     }
-    if (document.title.toLowerCase() === 'about') {
-        try {//event listeners for the about page
-            document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
-        } catch (error) {
-            console.log(
-                `Event Listener: [about]
-            Error Message: ${error.message}`)
-        }
-    }
+
+
+
+
     if (document.title.toLowerCase() === 'about2') {
         try {//event listeners for the about page
             document.getElementById('responseButton').addEventListener("click", checkAboutPuzzleEventHandler);

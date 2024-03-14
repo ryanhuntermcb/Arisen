@@ -1,3 +1,4 @@
+/*
 function CreateOneWheelLetterOption(inputArray, inputTargetContainerId, inputSelectListName) {
     let inputArrayLength
     let TargetContainer = document.getElementById(inputTargetContainerId)
@@ -113,7 +114,7 @@ function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
     }
 
 }
-
+*/
 /*document.addEventListener("DOMContentLoaded", () => {
     let PuzzleContainerId = 'PuzzleContainer'
     let PuzzleSolution = 'solution'
@@ -139,7 +140,7 @@ function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
 
 })
 */
-
+/*
 document.addEventListener("DOMContentLoaded", () => {
     if (document.title.toLowerCase() === 'about') {
         try {
@@ -166,7 +167,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 `Event Listener: [about]
             Error Message: ${error.message}`)
         }
+
+
     }
+    
     if (document.title.toLowerCase() === 'about') {
         try {
             let PuzzleContainerId = 'PuzzleContainer'
@@ -193,4 +197,6 @@ document.addEventListener("DOMContentLoaded", () => {
             Error Message: ${error.message}`)
         }
     }
+    
 }, false);
+*/
