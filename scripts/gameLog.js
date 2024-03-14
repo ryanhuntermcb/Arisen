@@ -103,11 +103,13 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
                 })
             }
-            if (getProgressTrackerState() >= 5){
+            if (getProgressTrackerState() >= 5) {
                 StatusText.innerHTML = puzzleSolvedText
             }
 
+
             document.getElementById('ARGModel').addEventListener("click", async () => {
+                incrementProgressTracker(2); //Puzzle #2 Lessons1
                 document.getElementById('ARGModel').classList.add("ARGModel");
                 document.getElementById("1").innerHTML = ""
                 //document.getElementById('1').style.color = 'red';
@@ -116,7 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     await new Promise(resolve => setTimeout(resolve, 10));
                 }
             });
-            document.getElementById('checkPuzzle').addEventListener("click", checkLessonsPuzzleEventHandler);
         }
         catch (error) {
             console.log(
@@ -126,29 +127,67 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     if (document.title.toLowerCase() === 'regrets') {
         try {//event listeners for the Regrets page
-            if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
-                //Initial Puzzle State: Hiding Regret Letters
-                document.getElementById('regret2').style.display = "none"
-                document.getElementById('regret3').style.display = "none";
-                document.getElementById('regret4').style.display = "none"; //Adjusting Opacity is also another option.
+            let regret1Key = document.getElementById('regret1Key')
+            let regret2 = document.getElementById('regret2')
+            let regret2Key = document.getElementById('regret2Key')
+            let regret3 = document.getElementById('regret3')
+            let regret3Key = document.getElementById('regret3Key')
+            let regret4 = document.getElementById('regret4')
+            let regret4Key = document.getElementById('regret4Key')
 
-                //Puzzle Keys
-                document.getElementById('regret1Key').addEventListener("click", () => { document.getElementById('regret2').style.display = "block"; });
-                document.getElementById('regret2Key').addEventListener("click", () => { document.getElementById('regret3').style.display = "block"; });
-                document.getElementById('regret3Key').addEventListener("click", () => { document.getElementById('regret4').style.display = "block"; });
-                document.getElementById('regret4Key').addEventListener("click", () => {
-                    checkRegretsPuzzleEventHandler();
-                    let regret2 = document.getElementById('regret2')
-                    let test = regret2.getElementsByTagName('span')
-                    for (let i of test) {
-                        i.classList.remove('Blackout')
-                    }
+            //Prevents pages access before appropriate progress level.
+            getProgressTrackerState() < 2 ? window.open('./Home.html', '_self') : false;
+
+            if (getProgressTrackerState() == 2) {
+                regret1Key.addEventListener("click", () => {
+                    incrementProgressTracker(3)//Puzzle #3 Regrets1
+                    //regret2.classList.remove('hidden');
+                    window.location.reload();
                 });
+            }
 
+            getProgressTrackerState() > 2 ? regret2.classList.remove('hidden') : false;
+
+            if (getProgressTrackerState() == 3) {
+                regret2Key.addEventListener("click", () => {
+                    incrementProgressTracker(4);//Puzzle #4
+                    window.location.reload();
+                    window.scrollTo(0, document.body.scrollHeight);//Should help make sure this isn't missed
+                });
             }
-            else {
-                console.log('All Regrets should be displayed because the puzzle has already been won');
+
+            (getProgressTrackerState() < 5 && getProgressTrackerState() > 3) ? document.getElementById('regret3Hint').classList.remove('hidden') : false;
+
+            getProgressTrackerState() > 4 ? regret3.classList.remove('hidden') : false;
+
+            if (getProgressTrackerState() == 5) {
+                //Add event listener for Regrets three here.
             }
+            /*
+                        if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
+                            //Initial Puzzle State: Hiding Regret Letters
+                            document.getElementById('regret2').style.display = "none"
+                            document.getElementById('regret3').style.display = "none";
+                            document.getElementById('regret4').style.display = "none"; //Adjusting Opacity is also another option.
+            
+                            //Puzzle Keys
+                            document.getElementById('regret1Key').addEventListener("click", () => { document.getElementById('regret2').style.display = "block"; });
+                            document.getElementById('regret2Key').addEventListener("click", () => { document.getElementById('regret3').style.display = "block"; });
+                            document.getElementById('regret3Key').addEventListener("click", () => { document.getElementById('regret4').style.display = "block"; });
+                            document.getElementById('regret4Key').addEventListener("click", () => {
+                                checkRegretsPuzzleEventHandler();
+                                let regret2 = document.getElementById('regret2')
+                                let test = regret2.getElementsByTagName('span')
+                                for (let i of test) {
+                                    i.classList.remove('Blackout')
+                                }
+                            });
+            
+                        }
+                        else {
+                            console.log('All Regrets should be displayed because the puzzle has already been won');
+                        }
+                        */
         }
         catch (error) {
             console.log(
