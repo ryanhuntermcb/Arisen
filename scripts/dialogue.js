@@ -1,4 +1,4 @@
-import { checkAboutPuzzleEventHandler } from "../scripts/Library.js";
+import { checkAboutPuzzleEventHandler, incrementProgressTracker } from "../scripts/Library.js";
 
 const speech = {
     intro: "What are you looking at?&#8194;...<br><br>\
@@ -122,6 +122,7 @@ function dialogue() {
                 document.getElementById("rightpupil").remove()
                 document.getElementById("nopupil").style.filter = "grayscale(100%)"
                 document.getElementById("dialogue").innerHTML = speech.specialResponse3;
+                incrementProgressTracker(7); //Puzzle7
                 dialogueCounter = -1;
                 return;
 
