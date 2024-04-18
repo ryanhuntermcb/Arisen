@@ -156,7 +156,7 @@ function backgroundOpacity() {
     try {
         let background = document.getElementsByClassName("homeimg")[0];
         let opacityValue = getOverallProgress();// gameProgress();
-        opacityValue = Math.pow(opacityValue, 3)
+        opacityValue = Math.pow(opacityValue, 6)
         if (opacityValue) {
             console.log(opacityValue);
             background.style.opacity = opacityValue;
