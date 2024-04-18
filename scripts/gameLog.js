@@ -162,7 +162,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (getProgressTrackerState() == 5) {
                 //Add event listener for Regrets three here.
+                regret3Key.addEventListener("click", () => {
+                    incrementProgressTracker(6);//Puzzle #6
+                })
             }
+
+            getProgressTrackerState() > 6 ? regret4.classList.remove('hidden') : false;
+
+            if (getProgressTrackerState() == 7) {
+                regret4Key.addEventListener("click", () => {
+                    incrementProgressTracker(8);//Puzzle #8
+                    let spanTags = document.getElementsByTagName("span")
+                    for (let i of spanTags) {
+                        console.log(i)
+                        i.classList.remove("Blackout")
+                    }
+                })
+            }
+
+
             /*
                         if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
                             //Initial Puzzle State: Hiding Regret Letters
@@ -225,6 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('containmentButton').addEventListener("click", (btn) => {
             btn.preventDefault();
             containmentEntry();
+            //Need to update the progress tracker here
         })
     }
 }, false);
