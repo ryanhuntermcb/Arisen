@@ -25,7 +25,7 @@ const speech = {
     specialResponse3: "Hahahahahahahahahahaha. Faith.<br><br> \
             Everyday a little bit stronger.<br><br> \
             I'm done talking, but here is something for your trouble. <br><br>\
-            The password is what he felt, maybe feels? <i>AGONY!</i>  Toodles!"
+            The keyword is what he felt, maybe feels? <i>AGONY!</i>  Toodles!"
 };
 
 let input1 = "";
