@@ -228,13 +228,14 @@ span {
   position: relative;
   top: 0;
   left: 0;
+  width: 500px
 }
 
 .ARGModel {
   animation: ARGshake 0.1s infinite;
 }
 
-@keyframes shake {
+@keyframes shakeLeft {
 
   0% {
     transform: translate(0, 0);
@@ -258,6 +259,33 @@ span {
 
   100% {
     transform: translate(0, -2);
+  }
+}
+
+@keyframes shakeRight {
+
+  0% {
+    transform: translate(0, 0);
+  }
+
+  20% {
+    transform: translate(-5px, 0.25);
+  }
+
+  40% {
+    transform: translate(5px, 0.5);
+  }
+
+  60% {
+    transform: translate(-5px, -0.25);
+  }
+
+  80% {
+    transform: translate(5px, 0);
+  }
+
+  100% {
+    transform: translate(0, -0.5);
   }
 }
 
@@ -309,23 +337,23 @@ span {
 
 
 .leftpupil {
-  top: 155px;
-  left: 278px;
+  top: 123px;
+  left: 200px;
   width: 15px;
   height: auto;
   z-index: 2;
   position: absolute;
-  animation: shake 3s infinite;
+  animation: shakeLeft 10s infinite;
 }
 
 .rightpupil {
-  top: 150px;
-  left: 360px;
+  top: 137px;
+  left: 247px;
   width: 15px;
   height: auto;
   z-index: 2;
   position: absolute;
-  animation: shake 3s infinite;
+  animation: shakeRight 10s infinite;
 }
 
 .overlap-container {
