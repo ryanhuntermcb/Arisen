@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.title.toLowerCase() === "support") {
         try {//event listeners for the support page
             document.getElementById('resetGame').addEventListener("click", () => {
-                resetGame()
+                resetProgress();
             });
             document.getElementById('winAboutGame').addEventListener("click", checkAboutPuzzleEventHandler);
             document.getElementById('winContainmentGame').addEventListener("click", checkContainmentPuzzleEventHandler);
