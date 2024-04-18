@@ -5,7 +5,8 @@ import {
 
     resetProgress, getProgressTrackerState, incrementProgressTracker, //New Progress Tracker
     getOverallProgress, areAllPuzzlesComplete, //New Progress Tracker
-    CreateBikeLockPuzzle, IsPuzzleSolved //Bike Lock Puzzles
+    CreateBikeLockPuzzle, IsPuzzleSolved, //Bike Lock Puzzles
+    imprisonment
 } from "../scripts/Library.js";
 
 let puzzleSolvedText = "Puzzle Solved"
@@ -45,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             //let puzzleSolvedText = "Puzzle Solved"
 
             console.log(getProgressTrackerState())
-            if (getProgressTrackerState() >= 7) {//Link to Picture only available after puzzle #7 Regrets3
+            if (getProgressTrackerState() >= 6) {//Link to Picture only available after puzzle #7 Regrets3
                 document.getElementById('checksPuzzleAbout').addEventListener("click", clickABoutPhoto);
             }
 
@@ -107,17 +108,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 StatusText.innerHTML = puzzleSolvedText
             }
 
-
-            document.getElementById('ARGModel').addEventListener("click", async () => {
-                incrementProgressTracker(2); //Puzzle #2 Lessons1
-                document.getElementById('ARGModel').classList.add("ARGModel");
-                document.getElementById("1").innerHTML = ""
-                //document.getElementById('1').style.color = 'red';
-                for (let i = 0; i < 200; i++) {
-                    document.getElementById("1").textContent += "i have regrets. ";
-                    await new Promise(resolve => setTimeout(resolve, 10));
-                }
-            });
+            if (getProgressTrackerState() < 2) {
+                document.getElementById('ARGModel').addEventListener("click", async () => {
+                    incrementProgressTracker(2); //Puzzle #2 Lessons1
+                    document.getElementById('ARGModel').classList.add("ARGModel");
+                    document.getElementById("1").innerHTML = ""
+                    //document.getElementById('1').style.color = 'red';
+                    for (let i = 0; i < 200; i++) {
+                        document.getElementById("1").textContent += "i have regrets. ";
+                        await new Promise(resolve => setTimeout(resolve, 10));
+                    }
+                })
+            };
         }
         catch (error) {
             console.log(
@@ -172,15 +174,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (getProgressTrackerState() == 7) {
                 regret4Key.addEventListener("click", () => {
                     incrementProgressTracker(8);//Puzzle #8
-                    let spanTags = document.getElementsByTagName("span")
-                    for (let i of spanTags) {
-                        console.log(i)
-                        i.classList.remove("Blackout")
-                    }
                 })
             }
 
-
+            if (getProgressTrackerState() > 7) {
+                let spanTags = document.getElementsByTagName("span")
+                for (let i of spanTags) {
+                    console.log(i)
+                    i.classList.remove("Blackout")
+                }
+            }
             /*
                         if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
                             //Initial Puzzle State: Hiding Regret Letters
@@ -230,6 +233,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {//event listeners for the support page
             document.getElementById('resetGame').addEventListener("click", () => {
                 resetProgress();
+                window.reload(self);
             });
             document.getElementById('winAboutGame').addEventListener("click", checkAboutPuzzleEventHandler);
             document.getElementById('winContainmentGame').addEventListener("click", checkContainmentPuzzleEventHandler);
@@ -242,8 +246,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.title === 'Containment') {
         document.getElementById('containmentButton').addEventListener("click", (btn) => {
             btn.preventDefault();
-            containmentEntry();
-            //Need to update the progress tracker here
+            if(containmentEntry()){
+                incrementProgressTracker(9);//Puzzle #9
+                imprisonment();
+            };
         })
     }
 }, false);

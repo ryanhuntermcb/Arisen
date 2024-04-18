@@ -19,14 +19,17 @@ function containmentEntry() {
         sessionStorage['prisonerFlag'] = $prisonerFlag
 
         document.getElementById('MessageWrapper').innerHTML = `<p>Access Granted: are you a prisoner? ${isPrisoner()}</p>`;
-        window.open('./prisoner.html', '_self')
+        
+        //window.open('./prisoner.html', '_self')
+        return true;
     }
     else {
         console.log('Access Denied');
         document.getElementById('MessageWrapper').innerHTML = `<p>Access Denied: Try Again</p>`;
+        return false;
     }
-    console.log(isPrisoner());
-    imprisonment();
+    //console.log(isPrisoner());
+    //imprisonment();
 }
 
 function isPrisoner() {
@@ -45,7 +48,7 @@ function imprisonment() {
         window.open('./prisoner.html', '_self');
     }
 }
-
+/*
 //Created for testing but are not currently used
 function cookieCreate(cookieName, value, hours) {
     const date = new Date();
@@ -69,10 +72,12 @@ function cookieGet(cookieName) {
     }
     return "";
 }
+*/
 
 //---------------------------------------------------
 //----------------Game Log---------------------------
 //---------------------------------------------------
+
 const gameLogKey = 'gameLog'
 const gameLogInitialState = {
     lessons: false,
@@ -146,6 +151,7 @@ function hasWon() {
     }
 }
 
+
 function backgroundOpacity() {
     try {
         let background = document.getElementsByClassName("homeimg")[0];
@@ -208,11 +214,11 @@ function clickABoutPhoto() {
     window.location.href = "./about2.html";
 
 }
-
+/*
 function isButtonWorking() {
     console.log('button test')
 }
-
+*/
 function checkAboutPuzzleEventHandler() {
     updateGameLog('about', true)
 }
