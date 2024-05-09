@@ -175,8 +175,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (getProgressTrackerState() == 5) {
                 //Add event listener for Regrets three here.
                 regret3Key.addEventListener("click", () => {
+                    regret3Key.classList.add('hide')
+                    setTimeout(() => {
+                        regret3Key.classList.add('hidden');
+                    }, 2900);
                     incrementProgressTracker(6);//Puzzle #6
                 })
+            }
+
+            if (getProgressTrackerState() > 5){
+                regret3Key.classList.add('hidden')
             }
 
             getProgressTrackerState() > 6 ? regret4.classList.remove('hidden') : false;
