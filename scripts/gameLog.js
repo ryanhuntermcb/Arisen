@@ -1,10 +1,15 @@
 import {
-    gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler,
-    checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler,
-    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto, containmentEntry, //group these together
+    //gameProgress, 
+    backgroundOpacity, 
+    //checkLessonsPuzzleEventHandler,
+    //checkRegretsPuzzleEventHandler, resetGame, 
+    //checkAboutPuzzleEventHandler,
+    //checkContainmentPuzzleEventHandler, 
+    //hasWonPuzzle, 
+    clickABoutPhoto, containmentEntry, //group these together
 
     resetProgress, getProgressTrackerState, incrementProgressTracker, //New Progress Tracker
-    getOverallProgress, areAllPuzzlesComplete, //New Progress Tracker
+    //getOverallProgress, areAllPuzzlesComplete, //New Progress Tracker
     CreateBikeLockPuzzle, IsPuzzleSolved, //Bike Lock Puzzles
     imprisonment
 } from "../scripts/Library.js";
@@ -224,7 +229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+    /*
     if (document.title.toLowerCase() === 'about2') {
         try {//event listeners for the about page
             document.getElementById('responseButton').addEventListener("click", checkAboutPuzzleEventHandler);
@@ -234,6 +239,7 @@ document.addEventListener("DOMContentLoaded", () => {
             Error Message: ${error.message}`)
         }
     }
+    */
     if (document.title.toLowerCase() === "support") {
         try {//event listeners for the support page
             document.getElementById('resetGame').addEventListener("click", () => {

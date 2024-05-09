@@ -77,7 +77,7 @@ function cookieGet(cookieName) {
 //---------------------------------------------------
 //----------------Game Log---------------------------
 //---------------------------------------------------
-
+/*
 const gameLogKey = 'gameLog'
 const gameLogInitialState = {
     lessons: false,
@@ -86,15 +86,20 @@ const gameLogInitialState = {
     containment: false,
     //support: false,
 };
+*/
+
 //freeze prevents the answers being changed by a function. We will need to add the puzzle answers to this object as we finish them.
+/*
 const gameSolutions = Object.freeze({
     lessons: "presage",
     regrets: "regret4key",
 });
-
+*/
+/*
 //Object.seal prevents us from adding properties that aren't in the gameLongInitialState object by accident.
 let userGameLog = Object.seal(getGameLog());
-
+*/
+/*
 function hasGameStarted() {
     if (localStorage.getItem(gameLogKey)) {
         return true;
@@ -102,7 +107,8 @@ function hasGameStarted() {
     else
         return false;
 }
-
+*/
+/*
 function resetGame() {
     //Creates the gameLog object in the browsers local Storage or Resets an existing gameLog object. 
     //JSON.stringify is needed because Local storage can only hold string values so the object needs to be turned into a string before it can be added.
@@ -110,7 +116,8 @@ function resetGame() {
     localStorage.setItem(gameLogKey, JSON.stringify(gameLogInitialState));
     userGameLog = getGameLog();
 }
-
+*/
+/*
 function getGameLog() {
     if (hasGameStarted()) {
         return JSON.parse(localStorage.getItem(gameLogKey));
@@ -150,7 +157,7 @@ function hasWon() {
         return false
     }
 }
-
+*/
 
 function backgroundOpacity() {
     try {
@@ -169,7 +176,7 @@ function backgroundOpacity() {
     }
 }
 
-
+/*
 //function to check if an individual puzzle has been completed
 function hasWonPuzzle(puzzleName) {
     //console.log(userGameLog[puzzleName]);
@@ -209,7 +216,7 @@ function checkRegretsPuzzleEventHandler() {
     checkPuzzleAnswer('regrets', 'regret4Key')
     alert("you finished the regrets Puzzle")
 }
-
+*/
 function clickABoutPhoto() {
     window.location.href = "./about2.html";
 
@@ -218,7 +225,7 @@ function clickABoutPhoto() {
 function isButtonWorking() {
     console.log('button test')
 }
-*/
+
 function checkAboutPuzzleEventHandler() {
     updateGameLog('about', true)
 }
@@ -226,10 +233,13 @@ function checkAboutPuzzleEventHandler() {
 function checkContainmentPuzzleEventHandler() {
     updateGameLog('containment', true)
 }
+*/
 
+/*
 if (hasWon()) {
     alert("You've won all the games");
 }
+*/
 
 //---------------------------------------------------
 //----------------Start Logic------------------------
@@ -445,9 +455,12 @@ function IsPuzzleSolved(PuzzleContainerId, PuzzleSolution) {
 export {
     containmentEntry, imprisonment, isPrisoner, start, //main //Containment
 
-    gameProgress, backgroundOpacity, checkLessonsPuzzleEventHandler, //GameLog
-    checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler, //GameLog
-    checkContainmentPuzzleEventHandler, hasWonPuzzle, clickABoutPhoto, //GameLog
+    //gameProgress, 
+    backgroundOpacity,
+    // checkLessonsPuzzleEventHandler, //GameLog
+    //checkRegretsPuzzleEventHandler, resetGame, checkAboutPuzzleEventHandler, //GameLog
+    //checkContainmentPuzzleEventHandler, hasWonPuzzle, 
+    clickABoutPhoto, //GameLog
     
     resetProgress, getProgressTrackerState, incrementProgressTracker, //New Progress Tracker
     getOverallProgress, areAllPuzzlesComplete, //New Progress Tracker

@@ -1,4 +1,4 @@
-import { checkAboutPuzzleEventHandler, incrementProgressTracker } from "../scripts/Library.js";
+import { /*checkAboutPuzzleEventHandler,*/ incrementProgressTracker } from "../scripts/Library.js";
 
 const speech = {
     intro: "What are you looking at?&#8194;...<br><br>\
@@ -116,7 +116,7 @@ function dialogue() {
                 return;
 
             } else if (input3 === "Faith") {
-                checkAboutPuzzleEventHandler()
+                //checkAboutPuzzleEventHandler()
                 document.getElementById("dialogueField").remove()
                 document.getElementById("leftpupil").remove()
                 document.getElementById("rightpupil").remove()
