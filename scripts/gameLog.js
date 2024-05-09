@@ -254,9 +254,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 resetProgress();
                 window.reload(self);
             });
-            document.getElementById('winAboutGame').addEventListener("click", checkAboutPuzzleEventHandler);
-            document.getElementById('winContainmentGame').addEventListener("click", checkContainmentPuzzleEventHandler);
-        } catch (error) {
+            //document.getElementById('donate').addEventListener("click", window.open('Home.html'));
+4        } catch (error) {
             console.log(
                 `Event Listener: [support]
             Error Message: ${error.message}`)
