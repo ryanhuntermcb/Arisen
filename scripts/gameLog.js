@@ -20,16 +20,21 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             //Changes Opacity of Home/Welcome page depending on the number of games won
             backgroundOpacity();
-
+            
+            let htmlAbout = `<a href="./about.html">About</a><br>`
             let htmlLessons = `<a id="lessonsLink" href="./lessons.html">Lessons</a><br>`
             let htmlRegrets = `<a id="regretsLink" href="./regrets.html">Regrets</a><br>`
             let htmlContainment = `<a id="containment" href="./containment.html">Containment</a><br>`//old id='context' I don't think we need it anymore
             let linkDiv = document.getElementById('link2')
+            let firstLinkDiv = document.getElementById('link1')
 
             //Makes links available depending on game stage.
-            getProgressTrackerState() > 0 ? linkDiv.innerHTML += htmlLessons : false;
-            getProgressTrackerState() > 1 ? linkDiv.innerHTML += htmlRegrets : false;
-            getProgressTrackerState() > 7 ? linkDiv.innerHTML += htmlContainment : false;
+            if (getProgressTrackerState() < 9) {
+                firstLinkDiv.innerHTML += htmlAbout
+                getProgressTrackerState() > 0 ? linkDiv.innerHTML += htmlLessons : false;
+                getProgressTrackerState() > 1 ? linkDiv.innerHTML += htmlRegrets : false;
+                getProgressTrackerState() > 7 ? linkDiv.innerHTML += htmlContainment : false;
+            }
         }
         catch (error) {
             console.log(
@@ -246,10 +251,12 @@ document.addEventListener("DOMContentLoaded", () => {
     if (document.title === 'Containment') {
         document.getElementById('containmentButton').addEventListener("click", (btn) => {
             btn.preventDefault();
-            if(containmentEntry()){
+            if (containmentEntry()) {
                 incrementProgressTracker(9);//Puzzle #9
                 imprisonment();
             };
+
+            //adjust the home page to just show support after the conatinament game has been won.
         })
     }
 }, false);
