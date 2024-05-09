@@ -3,6 +3,6 @@ import { containmentEntry, imprisonment, isPrisoner, start } from '../scripts/Li
 console.log(isPrisoner())
 
 //Check if User has completed containment
-imprisonment();
+//imprisonment();
 //checking if user is New and starting tutorial script
 start();
