@@ -13,7 +13,7 @@ let Password = 'ForgetMe'
 function containmentEntry() {
     let UserInput = Array.from(document.querySelectorAll('#EntryForm input')).reduce((acc, input) => ({ ...acc, [input.id]: input.value }), {});
     console.log(UserInput);
-    if (Username == UserInput.Username && Password == UserInput.Password) {
+    if (Username.toLowerCase() == UserInput.Username.ToLowerCase() && Password.toLowerCase == UserInput.Password.ToLowerCase()) {
         console.log('Access Granted');
         let $prisonerFlag = 'true'
         sessionStorage['prisonerFlag'] = $prisonerFlag
@@ -293,7 +293,7 @@ function getProgressTrackerState() {
 function incrementProgressTracker(puzzleNumber) {
     let currentProgress = getProgressTrackerState()
     if (currentProgress == puzzleNumber - 1) {
-        console.log('proceed with incrementing tracker')
+        console.log('Progress Tracker incremented')
         let newProgress = 1 + currentProgress
         window.localStorage.setItem(progressTrackerKey, JSON.stringify(newProgress))
     }

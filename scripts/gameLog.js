@@ -188,19 +188,31 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             getProgressTrackerState() > 6 ? regret4.classList.remove('hidden') : false;
+            
+
+            function removeBlackOut(){
+                let spanTags = document.getElementsByTagName("span")
+                for (let i of spanTags) {
+                    //console.log(i)
+                    i.classList.remove("Blackout")
+                }
+            }
 
             if (getProgressTrackerState() == 7) {
                 regret4Key.addEventListener("click", () => {
                     incrementProgressTracker(8);//Puzzle #8
+                    removeBlackOut();
+                    window.scrollTo({
+                        top: 0,
+                        left: 0,
+                        behavior: "smooth",
+                      });
+                      
                 })
             }
 
             if (getProgressTrackerState() > 7) {
-                let spanTags = document.getElementsByTagName("span")
-                for (let i of spanTags) {
-                    console.log(i)
-                    i.classList.remove("Blackout")
-                }
+                removeBlackOut();
             }
             /*
                         if (!hasWonPuzzle('regrets')) {//if the puzzle has been won then the event listeners are not created
