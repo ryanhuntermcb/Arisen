@@ -5,6 +5,7 @@
 
 p {
   display: inline;
+  max-width: 1000px;
 }
 
 button {
