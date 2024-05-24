@@ -13,7 +13,7 @@ let Password = 'ForgetMe'
 function containmentEntry() {
     let UserInput = Array.from(document.querySelectorAll('#EntryForm input')).reduce((acc, input) => ({ ...acc, [input.id]: input.value }), {});
     console.log(UserInput);
-    if (Username.toLowerCase() == UserInput.Username.ToLowerCase() && Password.toLowerCase == UserInput.Password.ToLowerCase()) {
+    if (Username.toLowerCase() == UserInput.Username.toLowerCase() && Password.toLowerCase() == UserInput.Password.toLowerCase()) {
         console.log('Access Granted');
         let $prisonerFlag = 'true'
         sessionStorage['prisonerFlag'] = $prisonerFlag
