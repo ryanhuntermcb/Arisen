@@ -149,15 +149,14 @@ input {
   height: 400px; /* Set a fixed height */
   overflow: hidden; /* Hide overflowing content */
   font-family: 'Syne Mono', monospace;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 254, 254);
   border-radius: 5px;
   width: 50%;
-  padding: 20px;
   margin: 40px;
   float: left;
   max-width: 600px;
-  box-shadow: 5px 5px 100px black, 0 0 100px rgb(0, 0, 0) inset;
-  background: #b7938a;
+  /*box-shadow: 5px 5px 100px black, 0 0 100px rgb(0, 0, 0) inset;*/
+  background: #00000055;
 }
 
 .about {
