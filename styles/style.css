@@ -1,11 +1,13 @@
 * {
   margin: 0;
   padding: 0;
+  font-size: 25px;
 }
 
 p {
   display: inline;
   max-width: 1000px;
+  font-size: 25px;
 }
 
 button {
@@ -77,6 +79,7 @@ input {
 
 .links {
   font-weight: bold;
+  font-size: 25px;
 }
 
 .hidden {
@@ -134,8 +137,8 @@ input {
   position: absolute;
   font-family: 'Amatic SC', serif;
   text-shadow: 1px 1px black;
-  top: 45px;
-  left: 280px;
+  top: 63px;
+  left: 443px;
   /*update this to match the new font*/
   z-index: -1;
 }
@@ -146,16 +149,14 @@ input {
 } */
 
 .about-old {
-  width: 600px; /* Set a fixed width */
-  height: 400px; /* Set a fixed height */
+  width: 650px; /* Set a fixed width */
+  height: 445px; /* Set a fixed height */
   overflow: hidden; /* Hide overflowing content */
   font-family: 'Syne Mono', monospace;
   color: rgb(255, 254, 254);
   border-radius: 5px;
-  width: 50%;
   margin: 40px;
   float: left;
-  max-width: 600px;
   /*box-shadow: 5px 5px 100px black, 0 0 100px rgb(0, 0, 0) inset;*/
   background: #00000055;
 }
@@ -165,17 +166,18 @@ input {
   position: sticky;
   text-shadow: 0.4px px rgb(255, 255, 255);
   display: block;
-
+  width: 700px;
 }
 
 .aboutPuzzle {
-  margin-top: 520px;
+  margin-top: 525px;
   margin-left: 20px;
 }
 
 .aboutPhoto {
   position: fixed;
   margin-top: 40px;
+  margin-left: 20px;
 }
 
 .lessonPhoto {
@@ -186,6 +188,8 @@ input {
 .aboutPhotoText {
   position: fixed;
   margin-top: 400px;
+  margin-left: 20px;
+  font-size: 18px;
 }
 
 .spiritAbout {
@@ -199,7 +203,7 @@ input {
 }
 
 .spiritLesson {
-  top: 45px;
+  top: 150px;
   left: 100px;
   position: absolute;
   font-family: 'Amatic SC', serif;
@@ -248,7 +252,7 @@ span {
 
 .startimg {
   opacity: 0;
-  width: 400px;
+  width: 450px;
   z-index: -1;
   justify-content: center;
   align-items: center;
