@@ -164,11 +164,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 regret2Key.addEventListener("click", () => {
                     incrementProgressTracker(4);//Puzzle #4
                     window.location.reload();
+                    document.getElementById('regret2Hint').classList.remove('hidden')
                     window.scrollTo(0, document.body.scrollHeight);//Should help make sure this isn't missed
+
+                    return false;
                 });
             }
 
-            (getProgressTrackerState() < 5 && getProgressTrackerState() > 3) ? document.getElementById('regret3Hint').classList.remove('hidden') : false;
+            if(getProgressTrackerState() == 4){
+                document.getElementById('regret2Hint').classList.remove('hidden')
+            }
 
             getProgressTrackerState() > 4 ? regret3.classList.remove('hidden') : false;
 
@@ -180,11 +185,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         regret3Key.classList.add('hidden');
                     }, 2900);
                     incrementProgressTracker(6);//Puzzle #6
+
+                    document.getElementById('regret3Hint').classList.remove('hidden')
                 })
             }
 
             if (getProgressTrackerState() > 5){
                 regret3Key.classList.add('hidden')
+                document.getElementById('regret3Hint').classList.remove('hidden')
             }
 
             getProgressTrackerState() > 6 ? regret4.classList.remove('hidden') : false;
@@ -264,7 +272,8 @@ document.addEventListener("DOMContentLoaded", () => {
         try {//event listeners for the support page
             document.getElementById('resetGame').addEventListener("click", () => {
                 resetProgress();
-                window.reload(self);
+                window.open('./home.html', '_self')
+                //window.reload(self);
             });
             //document.getElementById('donate').addEventListener("click", window.open('Home.html'));
 4        } catch (error) {
