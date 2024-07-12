@@ -214,7 +214,8 @@ input {
 }
 
 span {
-  font-weight: bold;
+  text-shadow: 1px 1px 1px aqua;
+  font-weight: 700;
 }
 
 #containmentPassword {

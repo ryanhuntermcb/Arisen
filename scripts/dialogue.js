@@ -1,5 +1,12 @@
 import { /*checkAboutPuzzleEventHandler,*/ incrementProgressTracker } from "../scripts/Library.js";
 
+document.getElementById('response').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();  
+        document.getElementById('responseButton').click();
+    }
+});
+
 const speech = {
     intro: "What are you looking at?&#8194;...<br><br>\
             Do you find me attractive?&#8194;...<br><br>\
@@ -115,7 +122,7 @@ function dialogue() {
                 dialogueCounter = -1;
                 return;
 
-            } else if (input3 === "Faith") {
+            } else if (input3.toLowerCase() === "faith") {
                 //checkAboutPuzzleEventHandler()
                 document.getElementById("dialogueField").remove()
                 document.getElementById("leftpupil").remove()
