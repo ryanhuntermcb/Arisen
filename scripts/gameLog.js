@@ -62,7 +62,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (getProgressTrackerState() < 1) {//Bike Lock Puzzle is only visible when it hasn't been solved
                 CreateBikeLockPuzzle(PuzzleSolution, 4, 'TestPuzzle', PuzzleContainerId);
-                PuzzleContainer.addEventListener("click", () => {
+                //PuzzleContainer.addEventListener("mousemove" /*"click"*/, () => {
+                document.addEventListener("mousemove" /*"click"*/, () => { //mac OS was having trouble with the click event listener
                     if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
                         incrementProgressTracker(1);//Puzzle #1
                         StatusText.innerHTML = puzzleSolvedText
