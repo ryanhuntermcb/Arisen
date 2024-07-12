@@ -104,7 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (getProgressTrackerState() < 5) {
                 //Bike Lock Puzzle is only visible when it hasn't been solved
                 CreateBikeLockPuzzle(PuzzleSolution, 6, 'Lesson2', PuzzleContainerId);
-                PuzzleContainer.addEventListener("click", () => {
+                //PuzzleContainer.addEventListener("click", () => {
+                document.addEventListener("mousemove", () => {
                     if (IsPuzzleSolved(PuzzleContainerId, PuzzleSolution)) {
                         incrementProgressTracker(5);//Puzzle #5
                         StatusText.innerHTML = puzzleSolvedText
@@ -204,6 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 for (let i of spanTags) {
                     //console.log(i)
                     i.classList.remove("Blackout")
+                    i.classList.add("AquaHighlight")
                 }
             }
 
