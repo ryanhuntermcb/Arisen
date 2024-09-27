@@ -10,8 +10,8 @@ script = ["I can never really know.","I'm stuck here as usual.","I guess I was j
 
 //Below is run by the start page
 function startScript() {
-    isOld()
     let i = 0;
+    isOld()
 
     const intervalId = setInterval(function () {
         if (i < script.length) {
