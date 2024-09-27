@@ -245,12 +245,15 @@ if (hasWon()) {
 //----------------Start Logic------------------------
 //---------------------------------------------------
 function isNew() { //checking if user is New and starting tutorial script
-    let $readValue = sessionStorage['newSession'];
-    if ($readValue !== 'false') {
-        let $newSession = 'true'
-        sessionStorage['newSession'] = $newSession
+    let readValue = sessionStorage['newSession'];
+    if (readValue !== 'false') {
+        let newSession = 'true'
+        sessionStorage['newSession'] = newSession
         console.log($readValue)
         return true;
+    }
+    else {
+        return false;
     }
 }
 

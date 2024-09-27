@@ -1,7 +1,7 @@
 //Sets user to no longer get the intro script
 function isOld() {
-    let $oldSession = 'false'
-    sessionStorage['newSession'] = $oldSession
+    let oldSession = 'false'
+    sessionStorage['newSession'] = oldSession
 }
 
 script = ["I can never really know.","I'm stuck here as usual.","I guess I was just born wrong.\
