@@ -10,7 +10,7 @@ script = ["I can never really know.","I'm stuck here as usual.","I guess I was j
 
 //Below is run by the start page
 function startScript() {
-
+    isOld()
     let i = 0;
 
     const intervalId = setInterval(function () {
@@ -27,7 +27,7 @@ function startScript() {
             }
         } else {
             clearInterval(intervalId); // Stop the interval when all elements are processed
-            isOld()
+            
             window.open('./home.html', '_self');
         }
     }, 2250);    
