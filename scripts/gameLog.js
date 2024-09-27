@@ -21,7 +21,7 @@ let puzzleSolvedText = "Puzzle Solved"
 //inner functions get called that create other event handlers for each page.
 //Other even listeners can be added into the parent event listener
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.title.toLowerCase() === "welcome") {//Home.html
+    if (document.title.toLowerCase() === "welcome") {//home.html
         try {
             //Changes Opacity of Home/Welcome page depending on the number of games won
             backgroundOpacity();
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let StatusText = document.getElementById('StatusText')
 
             //Prevents pages access before appropriate progress level.
-            getProgressTrackerState() < 1 ? window.open('./Home.html', '_self') : false;
+            getProgressTrackerState() < 1 ? window.open('./home.html', '_self') : false;
 
             //Hides Lessons2 until after Regrets2
             getProgressTrackerState() > 3 ? document.getElementById('2').classList.remove('hidden') : false;
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let regret4Key = document.getElementById('regret4Key')
 
             //Prevents pages access before appropriate progress level.
-            getProgressTrackerState() < 2 ? window.open('./Home.html', '_self') : false;
+            getProgressTrackerState() < 2 ? window.open('./home.html', '_self') : false;
 
             if (getProgressTrackerState() == 2) {
                 regret1Key.addEventListener("click", () => {
@@ -278,7 +278,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.open('./home.html', '_self')
                 //window.reload(self);
             });
-            //document.getElementById('donate').addEventListener("click", window.open('Home.html'));
+            //document.getElementById('donate').addEventListener("click", window.open('home.html'));
 4        } catch (error) {
             console.log(
                 `Event Listener: [support]
