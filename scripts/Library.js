@@ -249,7 +249,7 @@ function isNew() { //checking if user is New and starting tutorial script
     if (readValue !== 'false') {
         let newSession = 'true'
         sessionStorage['newSession'] = newSession
-        console.log($readValue)
+        console.log(readValue)
         return true;
     }
     else {
